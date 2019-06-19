@@ -1,0 +1,1 @@
+export const CHANGE_MENU_CURRENT="change_menu_current";

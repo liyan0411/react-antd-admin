@@ -1,0 +1,63 @@
+// 公共部分样式：侧边栏、头部以及视图
+@import "global";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+#root {
+	height: 100%;
+}
+.App{
+	height: 100%;
+}
+.trigger{
+  font-size:18px;
+  line-height:64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.trigger:hover{
+	color: @primary-color;
+}
+.Layout-view {
+	position:relative;
+	height:100%;
+	>.header-view {
+		width:100%;
+		position:absolute;
+		top:0;
+		z-index:99;
+		.header-menu{
+			border: none;
+			height: 64px;
+			margin-right: 20px;
+			>.ant-menu-item,
+			.ant-menu-submenu {
+				line-height: 62px;
+			}
+		}
+	}
+	>.router-view {
+		width: 100%;
+		overflow-y:auto;
+		position:absolute;
+		top:64px;
+		>.content{
+			margin: 12px;
+			border-radius: 2px;
+			>.view-bg{
+				background: #fff;
+				padding: 10px;
+				border-radius: 3px;
+			}
+		}
+	}
+}
+.ant-menu-inline-collapsed{
+	width:auto!important;
+	;
+}
