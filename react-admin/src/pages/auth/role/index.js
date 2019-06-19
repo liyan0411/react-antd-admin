@@ -1,10 +1,15 @@
 import React,{Component,Fragment} from "react";
-import BreadcrumbCustom from '@/components/breadcrumb'
+import BreadcrumbCustom from '_c/breadcrumb'
 import {Button} from "antd";
 
 class Role extends Component {
   jumpDetail=()=>{
-    this.props.history.push('/app/roleDetail')
+    // this.props.history.push('/app/roleDetail');
+    // query 公开  state  加密
+    this.props.history.push({
+      pathname: '/app/roleDetail',
+      query: { id:12,name: ' sunny' }
+    })
   }
   render() {
     return (

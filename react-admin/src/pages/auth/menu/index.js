@@ -1,5 +1,5 @@
 import React,{Component,Fragment} from "react";
-import BreadcrumbCustom from '@/components/breadcrumb'
+import BreadcrumbCustom from '_c/breadcrumb'
 
 class MenuManage extends Component {
   render() {

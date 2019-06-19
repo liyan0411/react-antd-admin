@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import BreadcrumbCustom from '@/components/breadcrumb';
+import BreadcrumbCustom from '_c/breadcrumb'
 import via from "@/assets/imgs/b1.jpg";
 
 class UserManage extends Component {

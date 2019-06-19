@@ -12,14 +12,14 @@ class CRouter extends Component {
 		return (
       <Switch>
         {
-          Object.keys(routesConfig).map(key => 
+          Object.keys(routesConfig).map(key =>
             routesConfig[key].map(r => {
               const route = r => {
                 const Component = AllPages[r.component];
                 return (
                   <Route
                     key={r.route || r.key}
-                    exact
+                    // exact
                     path={r.route || r.key}
                     component={Component}
                   />

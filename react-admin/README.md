@@ -25,6 +25,7 @@ antd-admin
 <!-- ervice worker是在后台运行的一个线程，可以用来处理离线缓存、消息推送、后台自动更新等任务 -->
 ├── config-overrudes.js  # 自定义配置
 ├── .project             # 项目文件
+├── .editorconfig        # 编码规范
 ├── .gitignore           # git 忽略项
 ├── yarn.json    				 # 在 `yarn`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
 └── package.json         # package.json 项目相关以及插件版本

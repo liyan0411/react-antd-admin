@@ -1,7 +1,6 @@
-//   在http.js中引入axios
-import axios from 'axios'
-import { Message } from 'antd'
-import { baseApi } from './config'
+import axios from 'axios';
+import { Message } from 'antd';
+import { baseApi } from './config';
 // create an axios instance   创建axios实例
 const service = axios.create({
   baseURL: baseApi, // api 的 base_url

@@ -28,6 +28,7 @@ module.exports = override(
   }),
   // @重写根路径
   addWebpackAlias({
-    '@': path.resolve(__dirname, 'src')
+    '@': path.resolve(__dirname, 'src'),
+    '_c':path.resolve(__dirname,'src/components')
   })
 )

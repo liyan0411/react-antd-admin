@@ -1,5 +1,6 @@
 import React,{Component} from "react";
-import { Icon, Layout, Menu } from 'antd'
+import { withRouter } from 'react-router-dom';
+import { Icon, Layout, Menu, Modal } from 'antd';
 const { Header } = Layout;
 const { SubMenu } = Menu;
 class HeaderCustom extends Component {
@@ -45,6 +46,20 @@ class HeaderCustom extends Component {
       fullscreen: !this.state.fullscreen
     })
   }
+  // 退出
+  quitFunc=()=>{
+    Modal.confirm({
+      title: '确认要退出？',
+      okText: '确认',
+      cancelText: '取消',
+      onOk: () => {
+        this.props.history.push('/login')
+      },
+      onCancel:()=>{
+
+      }
+    })
+  }
   render() {
     const { toggle, collapsed } = this.props
     return (
@@ -75,8 +90,8 @@ class HeaderCustom extends Component {
             )}
           </Menu.Item>
           <Menu.Item key="mail">
-            <Icon type="mail" />
-            one
+            <Icon type="user" />
+            username
           </Menu.Item>
           <SubMenu
             title={
@@ -85,13 +100,13 @@ class HeaderCustom extends Component {
               </span>
             }
           >
-            <Menu.ItemGroup title="Item 1">
-              <Menu.Item key="setting:1">Option 1</Menu.Item>
-              <Menu.Item key="setting:2">Option 2</Menu.Item>
+            <Menu.ItemGroup title="设置">
+              <Menu.Item key="setting:1">个人中心</Menu.Item>
             </Menu.ItemGroup>
-            <Menu.ItemGroup title="Item 2">
-              <Menu.Item key="setting:3">Option 3</Menu.Item>
-              <Menu.Item key="setting:4">Option 4</Menu.Item>
+            <Menu.ItemGroup title="操作">
+              <Menu.Item key="setting:3" onClick={this.quitFunc}>
+                退出
+              </Menu.Item>
             </Menu.ItemGroup>
           </SubMenu>
         </Menu>
@@ -99,4 +114,4 @@ class HeaderCustom extends Component {
     )
   }
 }
-export default HeaderCustom;
+export default withRouter(HeaderCustom)

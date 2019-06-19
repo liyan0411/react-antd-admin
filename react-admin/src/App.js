@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Layout } from 'antd'
-import MenuCustom from '@/components/menu'
-import HeaderCustom from '@/components/header'
-import Routes from "./router"
+import React, { Component } from 'react';
+import { Layout } from 'antd';
+import MenuCustom from '_c/menu';
+import HeaderCustom from '_c/header';
+import Routes from "./router";
 const { Content } = Layout;
 class App extends Component {
   state = {
@@ -53,7 +53,7 @@ class App extends Component {
               }}
             >
               <Content className="content">
-                <Routes></Routes>
+                <Routes />
                 {/* </Layout> */}
               </Content>
             </div>
