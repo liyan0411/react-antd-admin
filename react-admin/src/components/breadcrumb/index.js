@@ -10,18 +10,22 @@ import { actionCreator } from '@/store/common';
 
 class BreadcrumbCustom extends Component {
   render() {
-		const { first, second, jumpHome } = this.props
-    const firsts = <Breadcrumb.Item>{first}</Breadcrumb.Item> || ''
-    const seconds = <Breadcrumb.Item>{second}</Breadcrumb.Item> || ''
+		const {jumpHome,lists } = this.props
     return (
       <span>
         <Breadcrumb style={{ margin: '12px 0' }}>
           <Breadcrumb.Item>
-            <Link onClick={jumpHome} to={'/app/home'}>首页</Link>
+            <Link onClick={jumpHome} to={'/app/home'}>
+              首页
+            </Link>
           </Breadcrumb.Item>
-
-          {firsts}
-          {seconds}
+          {
+            lists.map((r)=>{
+              return (
+                <Breadcrumb.Item key={r}>{r}</Breadcrumb.Item> || ''
+              )
+            })
+          }
         </Breadcrumb>
       </span>
     )

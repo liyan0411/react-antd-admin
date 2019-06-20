@@ -13,7 +13,7 @@ class Home extends Component {
       <Fragment>
         <div className="view-bg">
           <img src={beauty} alt="" />
-          <h1>我是首页</h1>
+          <h1>我是首页home</h1>
           <Button type="primary" onClick={changeHomeData}>
             修改数据
           </Button>

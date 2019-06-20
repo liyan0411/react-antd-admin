@@ -1,6 +1,9 @@
 {
   "name": "antd-admin",
   "version": "0.1.0",
+  "description": "react-antd-admin",
+  "author": "leeyen <liyan_wo@163.com>",
+  "contributors": [],
   "private": true,
   "homepage": "http://XXX.com",
   "dependencies": {

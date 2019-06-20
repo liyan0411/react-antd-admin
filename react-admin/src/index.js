@@ -5,7 +5,6 @@ import "@/assets/styles/index.less";
 import Page from './Page';
 // 解决create-react-app IE 兼容性问题
 import 'react-app-polyfill/ie9';
-import 'react-app-polyfill/stable';
 import * as serviceWorker from './serviceWorker';
 
 

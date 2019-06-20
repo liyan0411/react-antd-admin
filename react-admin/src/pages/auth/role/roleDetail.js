@@ -20,10 +20,10 @@ class RoleDetail extends Component {
 	render(){
 		return (
       <Fragment>
-        <BreadcrumbCustom first="权限管理" second="角色管理" />
+        <BreadcrumbCustom lists={["权限管理","角色管理","角色详情"]}/>
         <div className="view-bg">
           <h1>我是角色管理 详情页</h1>
-          <p></p>
+          <p />
         </div>
       </Fragment>
     )

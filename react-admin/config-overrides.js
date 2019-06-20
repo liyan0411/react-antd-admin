@@ -26,7 +26,7 @@ module.exports = override(
       '@box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)' // 浮层阴影
     }
   }),
-  // @重写根路径
+  //  配置别名
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
     '_c':path.resolve(__dirname,'src/components')

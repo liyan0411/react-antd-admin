@@ -81,6 +81,7 @@ class HeaderCustom extends Component {
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
           mode="horizontal"
+          style={{background:"none"}}
         >
           <Menu.Item key="full" onClick={this.screenFull}>
             {this.state.fullscreen ? (

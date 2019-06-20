@@ -14,7 +14,9 @@ class Role extends Component {
   render() {
     return (
       <Fragment>
-        <BreadcrumbCustom first="权限管理" second="角色管理" />
+        <BreadcrumbCustom
+          lists={['权限管理', '角色管理']}
+        />
         <div className="view-bg">
           <h1>角色管理</h1>
           <Button type="primary" onClick={this.jumpDetail}>
