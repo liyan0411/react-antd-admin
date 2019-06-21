@@ -49,8 +49,9 @@ class MenuCustom extends Component {
   }
 }
 
-const mapState = (state) => ({
-  current: state.getIn(['common', 'current'])
+const mapState = state => ({
+  current: state.get('common').current
+  // current: state.common.current
 })
 const mapDispatch = dispatch => ({
   // 点击菜单事件

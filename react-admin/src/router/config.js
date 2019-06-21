@@ -5,12 +5,16 @@ export default {
       key: '/app/home',
       title: '首页',
       icon: 'home',
+      meta: {}, //校验相关字段
       component: 'Home'
     },
     {
       key: '/app/userManage',
       title: '用户管理',
       icon: 'user',
+      meta: {
+        requireAuth:true
+      },
       component: 'UserManage'
     },
     {
@@ -21,11 +25,13 @@ export default {
         {
           key: '/app/role',
           title: '角色管理',
+          meta: {},
           component: 'Role'
         },
         {
           key: '/app/menumanage',
           title: '菜单管理',
+          meta: {},
           component: 'MenuManage'
         }
       ]
@@ -36,6 +42,7 @@ export default {
     {
       key: '/app/roleDetail',
       title: '详情页',
+      meta: {},
       component: 'RoleDetail'
     }
   ]

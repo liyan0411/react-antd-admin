@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import "@/assets/styles/login.less";
 import {loginApi} from "@/api/login/index.js";
-
+import {sSetObject} from "@/utils/index.js";
 class LoginView extends Component {
 	constructor(props){
 		super(props);
@@ -17,9 +17,9 @@ class LoginView extends Component {
 	}
   handleSubmit = e => {
 		e.preventDefault()
-		
+
     this.props.form.validateFields((err, values) => {
-			
+
       if (!err) {
 				this.setState({
           loading: true
@@ -35,7 +35,8 @@ class LoginView extends Component {
             loading: false
           });
 					if (r.repCode === '0000') {
-						let res = r.repData;
+            let res = r.repData;
+            sSetObject("isLogin",r.token)
 						console.log(res);
 						this.props.history.push("/app/home")
 					}

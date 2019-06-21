@@ -11,7 +11,7 @@ module.exports = override(
     javascriptEnabled: true,
     // antd 配置
     modifyVars: {
-      '@primary-color': '#7546c9', // 全局主色
+      '@primary-color': '#1890ff', // 全局主色
       '@link-color': '#1890ff', // 链接色
       '@success-color': '#52c41a', // 成功色
       '@warning-color': '#faad14', // 警告色
@@ -29,6 +29,6 @@ module.exports = override(
   //  配置别名
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
-    '_c':path.resolve(__dirname,'src/components')
+    _c: path.resolve(__dirname, 'src/components')
   })
 )
