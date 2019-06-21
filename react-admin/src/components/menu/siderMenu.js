@@ -3,14 +3,15 @@ import { Menu, Icon } from 'antd'
 import {Link} from "react-router-dom";
 
 	// 一级菜单 直接跳转
-const renderMenuItem = item =>(
-	<Menu.Item key={item.key}>
-		<Link to={(item.route||item.key)+(item.query||'')}>
-			{item.icon&&<Icon type={item.icon}/>}
-			<span className="nav-text">{item.title}</span>
-		</Link>
-	</Menu.Item>
-);
+const renderMenuItem = item => (
+  <Menu.Item key={item.key}>
+    <Link to={(item.route || item.key) + (item.query || '')} replace>
+      {/* replace  去除连续点击同一个 警告 */}
+      {item.icon && <Icon type={item.icon} />}
+      <span className="nav-text">{item.title}</span>
+    </Link>
+  </Menu.Item>
+)
 
 // 二级菜单
 const renderSubMenu = item => (

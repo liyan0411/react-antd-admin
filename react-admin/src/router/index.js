@@ -3,7 +3,7 @@
  */
 import React,{Component} from "react";
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { Message } from 'antd';
+// import { Message } from 'antd';
 import queryString from 'query-string';
 import AllPages from '../pages';
 import routesConfig from './config';
@@ -16,7 +16,7 @@ class CRouter extends Component {
     // isLogin 是否登录标识 根据项目做修改
     let isLogin = sGetObject('isLogin');
     if (r.requireAuth&&!isLogin) {
-      Message.warning('暂无访问权限，请登录后再访问！', 1)
+      // Message.warning('暂无访问权限，请登录后再访问！', 1)
       // .then(() =>{
       //   console.log(1)
         return <Redirect to='/login' />
