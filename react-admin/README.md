@@ -23,7 +23,9 @@ antd-admin
     ├── Page.js          	# 主视图路由
     └── serviceWorker.js 	# 注册了一个service worker
 <!-- ervice worker是在后台运行的一个线程，可以用来处理离线缓存、消息推送、后台自动更新等任务 -->
+├── .env                 # 文件位于项目根目录下，作为全局环境配置文件。
 ├── config-overrudes.js  # 自定义配置
+├── CHANGELOG.md         # 版本改变日志
 ├── .project             # 项目文件
 ├── .editorconfig        # 编码规范
 ├── .gitignore           # git 忽略项

@@ -4,7 +4,8 @@ import {Button} from "antd";
 
 class Role extends Component {
   jumpDetail=()=>{
-    // this.props.history.push('/app/roleDetail');
+    // let id="adasd"
+    // this.props.history.push('/app/roleDetail/'+id);
     // query 公开  state  加密
     this.props.history.push({
       pathname: '/app/roleDetail',

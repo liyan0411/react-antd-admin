@@ -1,5 +1,5 @@
 /**
- * Created by hao.cheng on 2017/5/7.
+ * 404 页面
  */
 import React from 'react';
 import notfound from '@/assets/imgs/404.png';

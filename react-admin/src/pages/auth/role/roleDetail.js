@@ -1,21 +1,23 @@
 import React,{Component,Fragment} from "react";
 import BreadcrumbCustom from '@/components/breadcrumb';
+import { sSetObject, sGetObject, sRemove } from '@/utils/index.js'
 
 class RoleDetail extends Component {
   componentDidMount(){
+    // console.log(this.props)
     this.setQuery();
   }
   setQuery=()=>{
     let querys = this.props.location.query;
     if (!querys) {
-      querys = sessionStorage.getItem('detailQuery');
+      querys = sGetObject('detailQuery')
     }else{
-      sessionStorage.setItem('detailQuery', JSON.stringify(querys))
+      sSetObject('detailQuery', querys)
     }
     console.log(querys);
   }
   componentWillUnmount(){
-    sessionStorage.removeItem("detailQuery");
+    sRemove('detailQuery')
   }
 	render(){
 		return (

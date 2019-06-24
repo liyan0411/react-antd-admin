@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, Icon } from 'antd'
 import {Link} from "react-router-dom";
 
-	// 一级菜单 直接跳转
+	// 一级菜单渲染方法 直接跳转
 const renderMenuItem = item => (
   <Menu.Item key={item.key}>
     <Link to={(item.route || item.key) + (item.query || '')} replace>
@@ -13,7 +13,7 @@ const renderMenuItem = item => (
   </Menu.Item>
 )
 
-// 二级菜单
+// 二级菜单渲染方法
 const renderSubMenu = item => (
   <Menu.SubMenu
     key={item.key}

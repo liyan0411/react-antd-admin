@@ -37,25 +37,35 @@ class CRouter extends Component {
                   key={r.route || r.key}
                   // exact  是否全路径匹配
                   path={r.route || r.key}
+                  className="animated fadeIn"
                   // component={Component}
                   // 路由拦截校验
-                  render={(props) => {
-                    const reg = /\?\S*/g;
+                  render={props => {
+                    const reg = /\?\S*/g
                     // 匹配?及其以后字符串
                     const queryParams = window.location.hash.match(reg);
                     // 去除?的参数
-                    const { params } = props.match;
+                    const { params } = props.match
                     Object.keys(params).forEach(key => {
-                      params[key] =params[key] &&params[key].replace(reg, '')
+                      params[key] =
+                        params[key] &&
+                        params[key].replace(reg, '')
                     })
-                    props.match.params = { ...params };
+                    props.match.params = { ...params }
                     const merge = {
                       ...props,
-                      query: queryParams? queryString.parse(queryParams[0]): {}
+                      query: queryParams
+                        ? queryString.parse(queryParams[0])
+                        : {}
                     }
                     // 重新包装组件 相关路由字段 通过props 传递进去 否则使用route 相关会报错
-                    const wrappedComponent = <Component {...merge} />;
-                    return this.requireAuth(r.meta,wrappedComponent)
+                    const wrappedComponent = (
+                      <Component {...merge} />
+                    )
+                    return this.requireAuth(
+                      r.meta,
+                      wrappedComponent
+                    )
                   }}
                 />
               )

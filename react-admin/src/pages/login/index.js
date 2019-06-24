@@ -1,65 +1,69 @@
 import React,{Component} from "react";
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import "@/assets/styles/login.less";
+import "./login.less";
 import {loginApi} from "@/api/login/index.js";
 import {sSetObject} from "@/utils/index.js";
+
 class LoginView extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
+  constructor(props) {
+    super(props)
+    this.state = {
       loading: false,
       formLayout: 'horizontal',
-      labelObj:{
-        username:"",
-        password:""
+      labelObj: {
+        username: '',
+        password: ''
       }
     }
-	}
+  }
   handleSubmit = e => {
-		e.preventDefault()
+    e.preventDefault()
 
     this.props.form.validateFields((err, values) => {
-
       if (!err) {
-				this.setState({
+        this.setState({
           loading: true
-        });
-				console.log('Received values of form: ', values);
-				let reqData = {
+        })
+        console.log('Received values of form: ', values)
+        let reqData = {
           account: values.username,
           password: values.password
         }
-				loginApi(reqData).then(r => {
-          // 成功回调
-					this.setState({
-            loading: false
-          });
-					if (r.repCode === '0000') {
-            let res = r.repData;
-            sSetObject("isLogin",r.token)
-						console.log(res);
-						this.props.history.push("/app/home")
-					}
-				}).catch(e=>{
-          // 失败 异常回调
-					this.setState({
-            loading: false
+        loginApi(reqData)
+          .then(r => {
+            // 成功回调
+            this.setState({
+              loading: false
+            })
+            if (r.repCode === '0000') {
+              let res = r.repData
+              sSetObject('isLogin', r.token)
+              console.log(res)
+              this.props.history.push("/app/home");
+            }
           })
-				})
+          .catch(e => {
+            // 失败 异常回调
+            this.setState({
+              loading: false
+            })
+          })
       }
     })
   }
 
+  componentDidMount() {
+  }
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const { formLayout, loading , labelObj } = this.state;
+    const { getFieldDecorator } = this.props.form
+    const { formLayout, loading, labelObj } = this.state
     const formItemLayout =
       formLayout === 'horizontal'
         ? {
             labelCol: { span: 0 },
             wrapperCol: { span: 24 }
           }
-        : null;
+        : null
     return (
       <div className="login-view">
         <Form

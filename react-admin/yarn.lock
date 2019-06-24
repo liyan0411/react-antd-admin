@@ -3485,6 +3485,13 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
+dom-helpers@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npm.taobao.org/dom-helpers/download/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
+  integrity sha1-6bNpcA+Vn2Ls3lprq95LzNkWmvg=
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+
 dom-matches@>=1.0.1:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/dom-matches/download/dom-matches-2.0.0.tgz#d2728b416a87533980eb089b848d253cf23a758c"
@@ -8942,6 +8949,16 @@ react-slick@~0.24.0:
     json2mq "^0.2.0"
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
+
+react-transition-group@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npm.taobao.org/react-transition-group/download/react-transition-group-4.1.1.tgz#16efe9ac8c68306f6bef59c7da5a96b4dfd9fb32"
+  integrity sha1-Fu/prIxoMG9r71nH2lqWtN/Z+zI=
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    dom-helpers "^3.4.0"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^16.8.6:
   version "16.8.6"

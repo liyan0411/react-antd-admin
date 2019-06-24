@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Message } from 'antd';
 import { baseApi } from './config';
+import Loading from "_c/loading";// 封装loading 组件
+
 // create an axios instance   创建axios实例
 const service = axios.create({
   baseURL: baseApi, // api 的 base_url
@@ -45,6 +47,7 @@ function requestGetFormat(reqData) {
 
 service.interceptors.request.use(
   config => {
+    Loading.show();
     // loadinginstace = Loading.service({
     //   lock: true,
     //   text: 'Loading',
@@ -69,7 +72,8 @@ service.interceptors.request.use(
 // response interceptor
 service.interceptors.response.use(
   response => {
-    let res = response.data
+    Loading.hide();
+    let res = response.data;
     if (response.status === 200) {
       // 根据后端响应状态码 处理请求
       if (res.repCode === '0000') {

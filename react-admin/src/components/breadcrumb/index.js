@@ -1,6 +1,7 @@
 /**
  * 面包屑 导航
  * 可根据导航 层级设置
+ * 传递参数  Array  当前页面 以及 上级页面 名称
  */
 import React, { Component } from 'react';
 import {connect} from "react-redux";

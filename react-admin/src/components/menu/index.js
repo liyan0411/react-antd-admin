@@ -3,7 +3,8 @@ import {connect} from "react-redux"
 import { Layout } from 'antd';
 import routes from "@/router/config.js";
 import SiderMenu from "./siderMenu";
-import {actionCreator} from "@/store/common"
+import {actionCreator} from "@/store/common";
+import "_a/antd/sider.less";
 const { Sider} = Layout;
 const logo = {
   height: '32px',
@@ -29,7 +30,12 @@ class MenuCustom extends Component {
     const { collapsed, heights, current, handleClick } = this.props
     return (
       <Fragment>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider
+          className="sider-view"
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
+        >
           <div className="logo" style={logo}>
             LOGO
           </div>

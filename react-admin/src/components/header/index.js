@@ -1,6 +1,9 @@
 import React,{Component} from "react";
 import { withRouter } from 'react-router-dom';
 import { Icon, Layout, Menu, Modal } from 'antd';
+import { connect } from "react-redux";
+import { actionCreator } from '@/store/common';
+
 const { Header } = Layout;
 const { SubMenu } = Menu;
 class HeaderCustom extends Component {
@@ -53,6 +56,9 @@ class HeaderCustom extends Component {
       okText: '确认',
       cancelText: '取消',
       onOk: () => {
+        sessionStorage.clear();
+        // 重置菜单选中项
+        this.props.handleClick();
         this.props.history.push('/login')
       },
       onCancel:()=>{
@@ -115,4 +121,11 @@ class HeaderCustom extends Component {
     )
   }
 }
-export default withRouter(HeaderCustom)
+const mapDispatch = dispatch => ({
+  // 退出重置store
+  handleClick(e) {
+    const action = actionCreator.changeMenuCurrent("");
+    dispatch(action)
+  }
+})
+export default connect(null,mapDispatch)(withRouter(HeaderCustom))

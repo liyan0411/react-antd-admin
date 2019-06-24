@@ -19,7 +19,7 @@ export const queryString = () => {
   })
   return _queryString
 }
-// session  存 取
+// session 增 删 查
 export const sSetObject=(k, v)=>{
   try {
     sessionStorage.setItem(k, JSON.stringify(v));
@@ -32,5 +32,10 @@ export const sGetObject=(k)=>{
     return v == null ? null : JSON.parse(v);
   } catch (e) {
   }
+}
+export const sRemove=(k)=>{
+  try {
+    sessionStorage.removeItem(k)
+  } catch (e) {}
 }
 
