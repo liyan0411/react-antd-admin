@@ -13,9 +13,18 @@ export default {
       title: '用户管理',
       icon: 'user',
       meta: {
-        requireAuth:true
+        requireAuth: true
       },
       component: 'UserManage'
+    },
+    {
+      key: '/app/cssanimate',
+      title: '动画',
+      icon: 'radar-chart',
+      meta: {
+        requireAuth: true
+      },
+      component: 'CSSAnimate'
     },
     {
       key: '/app/auth',

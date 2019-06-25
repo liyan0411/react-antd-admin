@@ -31,6 +31,7 @@ class MenuCustom extends Component {
     return (
       <Fragment>
         <Sider
+          width="240px"
           className="sider-view"
           trigger={null}
           collapsible

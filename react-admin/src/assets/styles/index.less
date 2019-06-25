@@ -17,6 +17,12 @@ body {
 .sider-view{
   background: @layout-sider-bg;
   color:@layout-sider-color;
+  // &.ant-layout-sider{
+    // flex: 0 0 240px;
+    // max-width: 240px;
+    // min-width: 240px;
+    // width: 240px;
+  // }
   // 修改antd  菜单样式
   .ant-menu-root {
 
@@ -116,14 +122,15 @@ body {
   // 路由视图
 	>.router-view {
 		width: 100%;
-		overflow-y:auto;
+    overflow-y:auto;
+    overflow-x: hidden;
 		position:absolute;
 		top:64px;
 		>.content{
 			margin: 12px;
 			border-radius: 2px;
-			>.view-bg{
-				background: #fff;
+			.view-bg{
+				background: @white;
 				padding: 10px;
 				border-radius: 3px;
 			}
@@ -133,3 +140,4 @@ body {
 .ant-menu-inline-collapsed{
 	width:auto!important;
 }
+

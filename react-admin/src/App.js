@@ -54,7 +54,6 @@ class App extends Component {
             >
               <Content className="content">
                 <Routes />
-                {/* </Layout> */}
               </Content>
             </div>
           </Layout>
