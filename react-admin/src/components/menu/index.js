@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import routes from "@/router/config.js";
 import SiderMenu from "./siderMenu";
 import {actionCreator} from "@/store/common";
-import "_a/antd/sider.less";
+
 const { Sider} = Layout;
 const logo = {
   height: '32px',

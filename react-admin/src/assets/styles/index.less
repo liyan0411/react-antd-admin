@@ -1,6 +1,6 @@
 // 公共部分样式：侧边栏、头部以及视图
 @import "global";
-
+@import '../theme/config';
 body {
 	margin: 0;
 	padding: 0;
@@ -13,24 +13,96 @@ body {
 .App{
 	height: 100%;
 }
-.trigger{
-  font-size:18px;
-  line-height:64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
+// 左侧菜单样式
+.sider-view{
+  background: @layout-sider-bg;
+  color:@layout-sider-color;
+  // 修改antd  菜单样式
+  .ant-menu-root {
+
+    &.ant-menu-inline,
+    &.ant-menu-vertical {
+      background: none;
+      border-right: 1px solid @primary-color;
+      color: @layout-sider-color;
+      // 二级菜单 展开 父菜单
+      .ant-menu-submenu-selected{
+        color: @white;
+      }
+      .ant-menu-item>a{
+        color: @layout-sider-color;
+      }
+      // 菜单选中后
+      .ant-menu-item-selected>a{
+        color: @white;
+      }
+      .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+      .ant-menu-submenu-active {
+        color: @white;
+      }
+
+      .ant-menu-submenu-title {
+        .ant-menu-submenu-arrow {
+
+          &::before,
+          &::after {
+            background: @white;
+          }
+        }
+        // 二级菜单 父菜单hover
+        &:hover {
+          color: @sider-select-color;
+
+          .ant-menu-submenu-arrow {
+
+            &::before,
+            &::after {
+              background: @white;
+            }
+          }
+        }
+      }
+
+      .ant-menu-submenu>.ant-menu {
+        background-color:@child-menu-bg;
+      }
+      .ant-menu-item>a:hover {
+        color: @sider-select-color;
+      }
+    }
+  }
 }
-.trigger:hover{
-	color: @primary-color;
-}
+
+// 右侧布局样式
 .Layout-view {
 	position:relative;
-	height:100%;
+  height:100%;
+  // 头部
 	>.header-view {
 		width:100%;
 		position:absolute;
 		top:0;
-		z-index:99;
+    z-index:99;
+    .trigger {
+      font-size: 18px;
+      line-height: 64px;
+      padding: 0 24px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .trigger:hover {
+      color: @primary-color;
+    }
+    .ant-layout-header {
+      background: @layout-header-bg;
+      color:@layout-header-color;
+      box-shadow: 2px 2px 10px #ccc;
+      padding: 0;
+      .ant-menu{
+        color: @layout-header-color;
+      }
+    }
 		.header-menu{
 			border: none;
 			height: 64px;
@@ -40,7 +112,8 @@ body {
 				line-height: 62px;
 			}
 		}
-	}
+  }
+  // 路由视图
 	>.router-view {
 		width: 100%;
 		overflow-y:auto;
@@ -59,5 +132,4 @@ body {
 }
 .ant-menu-inline-collapsed{
 	width:auto!important;
-	;
 }

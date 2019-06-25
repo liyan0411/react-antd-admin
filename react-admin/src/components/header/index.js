@@ -69,13 +69,7 @@ class HeaderCustom extends Component {
   render() {
     const { toggle, collapsed } = this.props
     return (
-      <Header
-        style={{
-          background: '#fff',
-          padding: 0,
-          boxShadow: '2px 2px 10px #ccc'
-        }}
-      >
+      <Header>
         <Icon
           className="trigger"
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
