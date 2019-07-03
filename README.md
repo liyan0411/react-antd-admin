@@ -7,11 +7,11 @@ antd-admin
 ├── src                  # 源代码
     ├── api           	 	# 接口
     ├── assets           	# 资源文件
-        ├── fonts  			 		# 字体图标库
-				├── imgs  			 		# 图片
-        ├── lib  			 		  # 静态依赖包
-        ├── styles  			 	# 样式
-				└── theme       		# less变量配置
+        ├── fonts  		# 字体图标库
+	├── imgs  		# 图片
+        ├── lib  		# 静态依赖包
+        ├── styles  		# 样式
+	└── theme       	# less变量配置
     ├── components       	# 全局公用组件
 		├── layout           	# 布局组件
     ├── pages            	# view 页面
