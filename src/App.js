@@ -17,9 +17,17 @@ class App extends Component {
     })
   }
   componentDidMount() {
-    this.getViewPortHeight()
+    this.getViewPortHeight();
+    let self=this;
+    // 回流 性能优化，防止多次触发
+    let timer=null;
     window.onresize = () => {
-      this.getViewPortHeight()
+      if (!timer) {
+        timer=setTimeout(()=>{
+          self.getViewPortHeight()
+          timer=null;
+        },1000)
+      }
     }
   }
   getViewPortHeight = () => {
