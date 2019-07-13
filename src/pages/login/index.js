@@ -1,8 +1,8 @@
 import React,{Component} from "react";
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import "./login.less";
-import {loginApi} from "@/api/login/index.js";
-import {sSetObject} from "@/utils/index.js";
+// import {loginApi} from "@/api/login/index.js";
+// import {sSetObject} from "@/utils/index.js";
 
 class LoginView extends Component {
   constructor(props) {
@@ -25,29 +25,30 @@ class LoginView extends Component {
           loading: true
         })
         console.log('Received values of form: ', values)
-        let reqData = {
-          account: values.username,
-          password: values.password
-        }
-        loginApi(reqData)
-          .then(r => {
-            // 成功回调
-            this.setState({
-              loading: false
-            })
-            if (r.repCode === '0000') {
-              let res = r.repData
-              sSetObject('isLogin', r.token)
-              console.log(res)
-              this.props.history.push("/app/home");
-            }
-          })
-          .catch(e => {
-            // 失败 异常回调
-            this.setState({
-              loading: false
-            })
-          })
+        // let reqData = {
+        //   account: values.username,
+        //   password: values.password
+        // }
+        this.props.history.push("/app/home");
+        // loginApi(reqData)
+        //   .then(r => {
+        //     // 成功回调
+        //     this.setState({
+        //       loading: false
+        //     })
+        //     if (r.repCode === '0000') {
+        //       let res = r.repData
+        //       sSetObject('isLogin', r.token)
+        //       console.log(res)
+        //       this.props.history.push("/app/home");
+        //     }
+        //   })
+        //   .catch(e => {
+        //     // 失败 异常回调
+        //     this.setState({
+        //       loading: false
+        //     })
+        //   })
       }
     })
   }
