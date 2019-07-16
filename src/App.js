@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
     this.getViewPortHeight();
     let self=this;
-    // 回流 性能优化，防止多次触发
+    // 防抖 性能优化，防止多次触发
     let timer=null;
     window.onresize = () => {
       if (!timer) {
