@@ -1,6 +1,11 @@
-const { override, fixBabelImports, addLessLoader,addWebpackAlias } = require('customize-cra');
-const path = require('path');
-process.env.GENERATE_SOURCEMAP =false;//去除生产环境的 sourceMap
+const {
+  override,
+  fixBabelImports,
+  addLessLoader,
+  addWebpackAlias
+} = require('customize-cra')
+const path = require('path')
+process.env.GENERATE_SOURCEMAP = false //去除生产环境的 sourceMap
 module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd',
@@ -29,8 +34,7 @@ module.exports = override(
   //  配置别名
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
-    '_c': path.resolve(__dirname, 'src/components'),
-    '_a':path.resolve(__dirname,'src/assets')
-
+    _c: path.resolve(__dirname, 'src/components'),
+    _a: path.resolve(__dirname, 'src/assets')
   })
 )

@@ -69,7 +69,7 @@ class HeaderCustom extends Component {
   render() {
     const { toggle, collapsed } = this.props
     return (
-      <Header>
+      <Header className="footer-header header-view">
         <Icon
           className="trigger"
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -81,7 +81,7 @@ class HeaderCustom extends Component {
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
           mode="horizontal"
-          style={{background:"none"}}
+          style={{ background: 'none' }}
         >
           <Menu.Item key="full" onClick={this.screenFull}>
             {this.state.fullscreen ? (

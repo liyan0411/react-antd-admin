@@ -2,7 +2,7 @@ import React,{Component,Fragment} from "react";
 import {connect} from "react-redux";
 import { Steps, Button } from 'antd';
 import {actionCreator} from "./store/index";
-import beauty from "@/assets/imgs/beauty.jpg"
+import beauty from "@/assets/imgs/beauty.jpg";
 const { Step } = Steps;
 
 class Home extends Component {
