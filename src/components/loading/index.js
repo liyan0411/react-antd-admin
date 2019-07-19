@@ -52,7 +52,7 @@ let div=document.createElement("div");
 // };
 document.body.appendChild(div);
 let Box = ReactDOM.render(React.createElement(
-    Loading,
-    // props
-  ), div)
+  Loading,
+  // props
+), div)
 export default Box;
