@@ -33,13 +33,14 @@ class App extends Component {
     }
   }
   getViewPortHeight = () => {
+    console.log(1)
     this.setState({
       heights:
         document.documentElement.clientHeight || document.body.clientHeight
     })
   }
   render() {
-    let {heights}=this.state;
+    let { heights } = this.state
     return (
       <div className="App">
         <Layout style={{ height: '100%' }}>
