@@ -3,6 +3,7 @@
  */
 
 /**
+ * @name 判断是否为电话、邮件
  * @param {string} path
  * @returns {Boolean}
  */
@@ -11,15 +12,7 @@ export function isExternal(path) {
 }
 
 /**
- * @param {string} str
- * @returns {Boolean}
- */
-export function validUsername(str) {
-  const valid_map = ['admin', 'editor']
-  return valid_map.indexOf(str.trim()) >= 0
-}
-
-/**
+ * @name 判断是否为链接
  * @param {string} url
  * @returns {Boolean}
  */
@@ -29,6 +22,7 @@ export function validURL(url) {
 }
 
 /**
+ * @name 判断是否为小写字母
  * @param {string} str
  * @returns {Boolean}
  */
@@ -38,6 +32,7 @@ export function validLowerCase(str) {
 }
 
 /**
+ * @name 判断是否为大写字母
  * @param {string} str
  * @returns {Boolean}
  */
@@ -47,6 +42,7 @@ export function validUpperCase(str) {
 }
 
 /**
+ * @name 判断是否为小写、大写字母
  * @param {string} str
  * @returns {Boolean}
  */
@@ -56,15 +52,17 @@ export function validAlphabets(str) {
 }
 
 /**
+ * @name 判断邮箱地址
  * @param {string} email
  * @returns {Boolean}
  */
 export function validEmail(email) {
-  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return reg.test(email)
 }
 
 /**
+ * @name 判断是否为字符串
  * @param {string} str
  * @returns {Boolean}
  */
@@ -76,6 +74,7 @@ export function isString(str) {
 }
 
 /**
+ * @name 判断是否为数组
  * @param {Array} arg
  * @returns {Boolean}
  */

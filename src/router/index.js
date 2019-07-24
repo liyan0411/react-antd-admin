@@ -8,6 +8,7 @@ import queryString from 'query-string';
 import AllPages from '../pages';
 import routesConfig from './config';
 import { sGetObject } from '@/utils/index.js';
+import getPageTitle from '@/utils/get-title.js'
 
 // 根据状态 写路由拦截逻辑
 class CRouter extends Component {
@@ -24,6 +25,10 @@ class CRouter extends Component {
 
     }
     return com;
+  }
+  // 设置网页title
+  setTitle(val){
+    document.title = getPageTitle(val || '')
   }
   render() {
     return (
@@ -62,6 +67,7 @@ class CRouter extends Component {
                     const wrappedComponent = (
                       <Component {...merge} />
                     )
+                    this.setTitle(r.title)
                     return this.requireAuth(
                       r.meta,
                       wrappedComponent
@@ -73,7 +79,10 @@ class CRouter extends Component {
             return r.component ? route(r) : r.subs.map(r => route(r))
           })
         )}
-        <Route render={() => <Redirect to="/404" />} />
+        <Route render={() => {
+          this.setTitle('404')
+          return <Redirect to="/404" />
+        }} />
       </Switch>
     )
   }
