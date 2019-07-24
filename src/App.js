@@ -10,7 +10,6 @@ class App extends Component {
   state = {
     collapsed: false,
     heights: 0,
-    lists: ['首页', '表格']
   }
 
   toggle = () => {
@@ -33,7 +32,6 @@ class App extends Component {
     }
   }
   getViewPortHeight = () => {
-    console.log(1)
     this.setState({
       heights:
         document.documentElement.clientHeight || document.body.clientHeight

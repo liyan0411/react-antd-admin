@@ -14,7 +14,6 @@ class RoleDetail extends Component {
     }else{
       sSetObject('detailQuery', querys)
     }
-    console.log(querys);
   }
   componentWillUnmount(){
     sRemove('detailQuery')
