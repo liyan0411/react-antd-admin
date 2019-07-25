@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Message } from 'antd';
-import { baseApi } from './config';
+import defaultSettings from './config/setting.js'
 import Loading from "_c/loading";// 封装loading 组件
 
 // create an axios instance   创建axios实例
 const service = axios.create({
-  baseURL: baseApi, // api 的 base_url
+  baseURL: defaultSettings.baseApi, // api 的 base_url
   timeout: 5000, // request timeout  设置请求超时时间
   responseType: 'json',
   // withCredentials: true, // 是否允许带cookie这些

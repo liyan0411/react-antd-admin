@@ -1,4 +1,4 @@
-import defaultSettings from "@/setting"
+import defaultSettings from "@/config"
 
 const title = defaultSettings.title;
 

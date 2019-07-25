@@ -5,7 +5,7 @@ const {
   addWebpackAlias
 } = require('customize-cra');
 const path = require('path');
-const defaultSettings = require('./src/setting');
+const defaultSettings = require('./src/config');
 
 
 const name = defaultSettings.title || 'Antd admin' // page title

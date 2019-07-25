@@ -5,18 +5,24 @@ antd-admin
 ├── node_modules         # 依赖资源包
 ├── public               # 公共资源文件
 ├── src                  # 源代码
-    ├── api           	 	# 接口
+    ├── api           	 	# 接口（和page文件对应）
     ├── assets           	# 资源文件
-        ├── fonts  		# 字体图标库
-	├── imgs  		# 图片
-        ├── lib  		# 静态依赖包
-        ├── styles  		# 样式
-	└── theme       	# less变量配置
+        ├── fonts  		      # 字体图标库
+	      ├── imgs  		      # 图片
+        ├── lib  		        # 静态依赖包
+        ├── styles  		    # 样式
+	      └── theme       	  # less变量配置
     ├── components       	# 全局公用组件
 		├── layout           	# 布局组件
+        ├── footer  		    # 底部
+        ├── header  		    # 头部
+	      └── menu           	# 左侧菜单
     ├── pages            	# view 页面
-        ├── Home          	# 首页
-        └── Login 	        # 登录
+        ├── animate  		    # 动画页
+        ├── login 	        # 登录
+        ├── home          	# 首页
+        ├── Loading.js      # 异步加载组件loading
+        └── index.js  		  # allpage
     ├── router           	# 路由配置
     ├── store          	 	# 状态管理
     ├── utils         	 	# 公用方法封装
