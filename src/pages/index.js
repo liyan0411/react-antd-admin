@@ -1,8 +1,8 @@
 /**
  * 路由组件出口文件
  */
-import Loadable from 'react-loadable'  // react 组件按需引入
-import Loading from "./Loading"
+import Loadable from 'react-loadable'; // react 组件按需引入
+import Loading from "./Loading";
 import Home from "./home/index";
 import UserManage from "./userManage/index";
 import Role from "./auth/role/index";
@@ -16,7 +16,6 @@ const CSSAnimate = Loadable({
   delay:1000
 })
 export default {
-
   Home,
   UserManage,
   Role,
