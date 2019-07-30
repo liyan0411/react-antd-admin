@@ -9,7 +9,7 @@ const { Content } = Layout
 class App extends Component {
   state = {
     collapsed: false,
-    heights: 0,
+    heights: 0
   }
 
   toggle = () => {

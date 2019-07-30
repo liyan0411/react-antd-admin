@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import store from './store';
 import NotFound from "_c/error/NotFound";
 import Login from "@/pages/login";
-import App from './App';
+import App from './App.jsx';
 
 export default ()=>{
 	return (
