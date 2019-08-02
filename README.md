@@ -57,16 +57,16 @@ antd-admin
     //or # 建议不要用cnpm  安装有各种诡异的bug 可以通过如下操作解决npm速度慢的问题
 		npm install --registry=https://registry.npm.taobao.org
 		
-    yarn add package (or npm install package -D)
+    yarn add package (or npm install package -D)  || npm install --save package
 
     # 本地开发 开启服务
-    yarn start
+    yarn start || npm start
 
   浏览器访问 http://localhost:3000
 
 ## 发布
     # 打包发布
-    yarn build
+    yarn build 
 
 ## 兼容性
 
