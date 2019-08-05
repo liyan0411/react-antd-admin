@@ -13,6 +13,7 @@ export default {
       title: '用户管理',
       icon: 'user',
       meta: {
+        path: ['用户管理']
         // requireAuth: true
       },
       component: 'UserManage'
@@ -22,6 +23,7 @@ export default {
       title: '动画',
       icon: 'radar-chart',
       meta: {
+        path: ['动画']
         // requireAuth: true
       },
       component: 'CSSAnimate'

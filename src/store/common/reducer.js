@@ -5,7 +5,8 @@ import {actionTypes} from "./index"
 //   current: window.location.hash.substr(1)
 // })
 const defaultState = {
-  current: window.location.hash.substr(1)
+  current: window.location.hash.substr(1),
+  pathList:[]
 };
 export default (state=defaultState,action)=>{
 	switch (action.type) {
@@ -13,6 +14,10 @@ export default (state=defaultState,action)=>{
       // return state.set('current', action.current)
       return Object.assign({}, state, {
         current: action.current
+      })
+    case actionTypes.CHANGE_PATH:
+      return Object.assign({}, state, {
+        pathList: action.pathList
       })
     default:
       return state

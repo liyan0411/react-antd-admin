@@ -1,5 +1,4 @@
 import React,{Component,Fragment} from "react";
-import BreadcrumbCustom from '_c/breadcrumb'
 import {Button} from "antd";
 
 class Role extends Component {
@@ -15,9 +14,6 @@ class Role extends Component {
   render() {
     return (
       <Fragment>
-        <BreadcrumbCustom
-          lists={['权限管理', '角色管理']}
-        />
         <div className="view-bg">
           <h1>角色管理</h1>
           <Button type="primary" onClick={this.jumpDetail}>

@@ -4,6 +4,8 @@ import MenuCustom from '@/layout/menu'
 import HeaderCustom from '@/layout/header'
 import FooterCustom from '@/layout/footer'
 import Routes from './router'
+import BreadcrumbCustom from '_c/breadcrumb'
+import {connect} from "react-redux"
 
 const { Content } = Layout
 class App extends Component {
@@ -27,7 +29,7 @@ class App extends Component {
         timer = setTimeout(() => {
           self.getViewPortHeight()
           timer = null
-        }, 1000)
+        }, 500)
       }
     }
   }
@@ -38,18 +40,16 @@ class App extends Component {
     })
   }
   render() {
-    let { heights } = this.state
+    let { heights, collapsed } = this.state
+    let { pathList } = this.props;
     return (
       <div className="App">
         <Layout style={{ height: '100%' }}>
           {/* 左侧菜单 */}
-          <MenuCustom collapsed={this.state.collapsed} heights={heights} />
+          <MenuCustom collapsed={collapsed} heights={heights} />
           <Layout className="Layout-view">
             {/* 右侧  头部 */}
-            <HeaderCustom
-              collapsed={this.state.collapsed}
-              toggle={this.toggle}
-            />
+            <HeaderCustom collapsed={collapsed} toggle={this.toggle} />
             {/* 路由视图 */}
             <div
               className="router-view"
@@ -63,6 +63,7 @@ class App extends Component {
                   minHeight: heights - 148 + 'px'
                 }}
               >
+                {pathList.length!==0?<BreadcrumbCustom lists={pathList} />:null}
                 <Routes />
               </Content>
               <FooterCustom />
@@ -73,4 +74,7 @@ class App extends Component {
     )
   }
 }
-export default App
+const mapState=(state)=>({
+  pathList:state.get('common').pathList
+})
+export default connect(mapState,null)(App);
