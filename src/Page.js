@@ -14,7 +14,7 @@ export default ()=>{
           <Switch>
             {/* <Switch>是唯一的因为它仅仅只会渲染一个路径 */}
             <Route exact path="/" render={() => <Redirect to="/login" />} />
-            <Route path="/app" component={App} />
+            <Route path="/root" component={App} />
             <Route path="/404" component={NotFound} />
             <Route path="/login" component={Login} />
             <Route component={NotFound} />

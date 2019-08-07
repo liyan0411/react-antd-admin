@@ -2,14 +2,14 @@ export default {
   menus: [
     // 菜单相关路由
     {
-      key: '/app/home',
+      key: '/root/home',
       title: '首页',
       icon: 'home',
       meta: {}, //校验相关字段
       component: 'Home'
     },
     {
-      key: '/app/userManage',
+      key: '/root/userManage',
       title: '用户管理',
       icon: 'user',
       meta: {
@@ -19,7 +19,7 @@ export default {
       component: 'UserManage'
     },
     {
-      key: '/app/cssanimate',
+      key: '/root/cssanimate',
       title: '动画',
       icon: 'radar-chart',
       meta: {
@@ -29,18 +29,37 @@ export default {
       component: 'CSSAnimate'
     },
     {
-      key: '/app/auth',
+      key: '/root/auth',
       title: '权限管理',
       icon: 'rocket',
       subs: [
         {
-          key: '/app/role',
+          key: '/root/role',
           title: '角色管理',
           meta: {},
           component: 'Role'
         },
         {
-          key: '/app/menumanage',
+          key: '/root/menumanage',
+          title: '菜单管理',
+          meta: {},
+          component: 'MenuManage'
+        }
+      ]
+    },
+    {
+      key: '/root/auth1',
+      title: '权限管理1',
+      icon: 'rocket',
+      subs: [
+        {
+          key: '/root/role1',
+          title: '角色管理',
+          meta: {},
+          component: 'Role'
+        },
+        {
+          key: '/root/menumanage1',
           title: '菜单管理',
           meta: {},
           component: 'MenuManage'
@@ -51,7 +70,7 @@ export default {
   // 非菜单相关路由
   others: [
     {
-      key: '/app/roleDetail',
+      key: '/root/roleDetail',
       title: '详情页',
       meta: {},
       component: 'RoleDetail'

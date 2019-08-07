@@ -5,16 +5,10 @@ import {actionTypes} from "./index"
 //   current: window.location.hash.substr(1)
 // })
 const defaultState = {
-  current: window.location.hash.substr(1),
   pathList:[]
 };
 export default (state=defaultState,action)=>{
 	switch (action.type) {
-    case actionTypes.CHANGE_MENU_CURRENT:
-      // return state.set('current', action.current)
-      return Object.assign({}, state, {
-        current: action.current
-      })
     case actionTypes.CHANGE_PATH:
       return Object.assign({}, state, {
         pathList: action.pathList

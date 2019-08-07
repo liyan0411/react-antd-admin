@@ -7,8 +7,8 @@ class Role extends Component {
     // this.props.history.push('/app/roleDetail/'+id);
     // query 公开  state  加密
     this.props.history.push({
-      pathname: '/app/roleDetail',
-      query: { id:12,name: ' sunny' }
+      pathname: '/root/roleDetail',
+      query: { id: 12, name: ' sunny' }
     })
   }
   render() {

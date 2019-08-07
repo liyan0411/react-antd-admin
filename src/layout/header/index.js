@@ -1,23 +1,15 @@
 import React,{Component} from "react";
 import { withRouter } from 'react-router-dom';
 import { Icon, Layout, Menu, Modal } from 'antd';
-import { connect } from "react-redux";
-import { actionCreator } from '@/store/common';
 
 const { Header } = Layout;
 const { SubMenu } = Menu;
 class HeaderCustom extends Component {
   state = {
-    current: '',
     fullscreen: false
   }
 
-  handleClick = e => {
-    console.log('click ', e)
-    this.setState({
-      current: e.key
-    })
-  }
+
   // 全屏 切换
   screenFull = () => {
     let fullscreen = this.state.fullscreen
@@ -57,8 +49,6 @@ class HeaderCustom extends Component {
       cancelText: '取消',
       onOk: () => {
         sessionStorage.clear();
-        // 重置菜单选中项
-        this.props.handleClick();
         this.props.history.push('/login')
       },
       onCancel:()=>{
@@ -78,8 +68,6 @@ class HeaderCustom extends Component {
 
         <Menu
           className="pull-right header-menu"
-          onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
           mode="horizontal"
           style={{ background: 'none' }}
         >
@@ -115,11 +103,5 @@ class HeaderCustom extends Component {
     )
   }
 }
-const mapDispatch = dispatch => ({
-  // 退出重置store
-  handleClick(e) {
-    const action = actionCreator.changeMenuCurrent("");
-    dispatch(action)
-  }
-})
-export default connect(null,mapDispatch)(withRouter(HeaderCustom))
+
+export default withRouter(HeaderCustom);

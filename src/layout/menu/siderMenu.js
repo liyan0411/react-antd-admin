@@ -14,6 +14,7 @@ const renderMenuItem = item => (
 )
 
 // 二级菜单渲染方法
+// eslint-disable-next-line react/no-multi-comp
 const renderSubMenu = item => (
   <Menu.SubMenu
     key={item.key}
@@ -28,6 +29,7 @@ const renderSubMenu = item => (
   </Menu.SubMenu>
 )
 
+// eslint-disable-next-line react/no-multi-comp
 export default ({menus,...props})=>(
 	// 根据是否有子菜单 调用不同方法渲染
 	<Menu {...props}>

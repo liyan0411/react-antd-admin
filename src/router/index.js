@@ -2,7 +2,7 @@
  * 菜单栏 路由配置文件
  */
 import React, { Component } from 'react'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import { Route, Redirect, Switch,withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 // import { Message } from 'antd';
 import queryString from 'query-string'
@@ -99,4 +99,4 @@ const mapDispatch = dispatch => ({
 export default connect(
   null,
   mapDispatch
-)(CRouter)
+)(withRouter(CRouter))

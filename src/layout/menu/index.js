@@ -1,9 +1,9 @@
 import React,{Component,Fragment} from "react";
-import {connect} from "react-redux"
 import { Layout } from 'antd';
+import{ withRouter } from 'react-router-dom';
 import routes from "@/router/config.js";
 import SiderMenu from "./siderMenu";
-import {actionCreator} from "@/store/common";
+import { sSetObject, sGetObject } from '@/utils'
 
 const { Sider} = Layout;
 const logo = {
@@ -20,14 +20,30 @@ class MenuCustom extends Component {
   // }
   // 初始化 state
   state = {
-    theme: 'dark'
+    theme: 'dark',
+    openKeys: []
+  }
+
+  onOpenChange = openKeys => {
+    // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
+    const latestOpenKey = openKeys.find(
+      key => this.state.openKeys.indexOf(key) === -1
+    )
+    sSetObject('menu', latestOpenKey)
+    this.setState({
+      openKeys: latestOpenKey ? [latestOpenKey] : []
+    })
   }
   componentDidMount() {
+
+    this.setState({
+      openKeys: [sGetObject('menu')]
+    })
     // console.log(routes.menus)
   }
   render() {
-    const {theme} = this.state;
-    const { collapsed, heights, current, handleClick } = this.props
+    const { theme, openKeys } = this.state
+    const { collapsed, heights, location } = this.props
     return (
       <Fragment>
         <Sider
@@ -43,11 +59,11 @@ class MenuCustom extends Component {
           <div style={{ height: heights - 64 + 'px', overflowY: 'auto' }}>
             <SiderMenu
               menus={routes.menus}
-              onClick={handleClick}
-              defaultOpenKeys={['/app/home']}
+              openKeys={openKeys}
               theme={theme}
               mode="inline"
-              selectedKeys={[current]}
+              onOpenChange={this.onOpenChange}
+              selectedKeys={[location.pathname]}
             />
           </div>
         </Sider>
@@ -56,18 +72,4 @@ class MenuCustom extends Component {
   }
 }
 
-const mapState = state => ({
-  current: state.get('common').current
-  // current: state.common.current
-})
-const mapDispatch = dispatch => ({
-  // 点击菜单事件
-  handleClick(e) {
-    const action = actionCreator.changeMenuCurrent(e.key)
-    dispatch(action);
-  }
-})
-export default connect(
-  mapState,
-  mapDispatch
-)(MenuCustom)
+export default withRouter(MenuCustom)

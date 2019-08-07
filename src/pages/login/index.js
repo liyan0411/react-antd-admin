@@ -29,7 +29,7 @@ class LoginView extends Component {
         //   account: values.username,
         //   password: values.password
         // }
-        this.props.history.push("/app/home");
+        this.props.history.push('/root/home')
         // loginApi(reqData)
         //   .then(r => {
         //     // 成功回调
