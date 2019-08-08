@@ -39,7 +39,6 @@ class MenuCustom extends Component {
     this.setState({
       openKeys: [sGetObject('menu')]
     })
-    // console.log(routes.menus)
   }
   render() {
     const { theme, openKeys } = this.state
@@ -59,7 +58,7 @@ class MenuCustom extends Component {
           <div style={{ height: heights - 64 + 'px', overflowY: 'auto' }}>
             <SiderMenu
               menus={routes.menus}
-              openKeys={openKeys}
+              openKeys={collapsed?null:openKeys}
               theme={theme}
               mode="inline"
               onOpenChange={this.onOpenChange}

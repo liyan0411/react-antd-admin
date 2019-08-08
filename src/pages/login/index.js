@@ -7,7 +7,9 @@ import "./login.less";
 class LoginView extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  state = {
       loading: false,
       formLayout: 'horizontal',
       labelObj: {
@@ -15,8 +17,7 @@ class LoginView extends Component {
         password: ''
       }
     }
-  }
-  handleSubmit = e => {
+  handleSubmit(e){
     e.preventDefault()
 
     this.props.form.validateFields((err, values) => {

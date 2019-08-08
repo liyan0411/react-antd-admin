@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Provider } from "react-redux";
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import store from './store';
 import NotFound from "_c/error/NotFound";
 import Login from "@/pages/login";
@@ -10,7 +10,7 @@ export default ()=>{
 	return (
     <Fragment>
       <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             {/* <Switch>是唯一的因为它仅仅只会渲染一个路径 */}
             <Route exact path="/" render={() => <Redirect to="/login" />} />
@@ -19,7 +19,7 @@ export default ()=>{
             <Route path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </Provider>
     </Fragment>
   )

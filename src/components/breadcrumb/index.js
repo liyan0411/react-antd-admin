@@ -14,7 +14,7 @@ class BreadcrumbCustom extends Component {
 		const {jumpHome,lists } = this.props
     return (
       <span>
-        <Breadcrumb style={{ margin: '12px 0' }}>
+        <Breadcrumb>
           <Breadcrumb.Item>
             <Link onClick={jumpHome} to={'/app/home'}>
               首页
