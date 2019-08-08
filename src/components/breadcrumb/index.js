@@ -4,19 +4,17 @@
  * 传递参数  Array  当前页面 以及 上级页面 名称
  */
 import React, { Component } from 'react';
-import {connect} from "react-redux";
 import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
-import { actionCreator } from '@/store/common';
 
 class BreadcrumbCustom extends Component {
   render() {
-		const {jumpHome,lists } = this.props
+		const {lists } = this.props
     return (
       <span>
         <Breadcrumb>
           <Breadcrumb.Item>
-            <Link onClick={jumpHome} to={'/app/home'}>
+            <Link to={'/root/home'}>
               首页
             </Link>
           </Breadcrumb.Item>
@@ -32,17 +30,4 @@ class BreadcrumbCustom extends Component {
     )
   }
 }
-const mapState=(state)=>({
-
-});
-const mapDispatch = (dispatch) => ({
-  // 面包屑 跳转首页
-  jumpHome(){
-    const action = actionCreator.changeMenuCurrent("/app/home");
-    dispatch(action);
-  }
-})
-export default connect(
-  mapState,
-  mapDispatch
-)(BreadcrumbCustom)
+export default BreadcrumbCustom

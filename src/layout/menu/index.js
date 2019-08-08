@@ -58,7 +58,7 @@ class MenuCustom extends Component {
           <div style={{ height: heights - 64 + 'px', overflowY: 'auto' }}>
             <SiderMenu
               menus={routes.menus}
-              openKeys={collapsed?null:openKeys}
+              defaultOpenKeys={openKeys}
               theme={theme}
               mode="inline"
               onOpenChange={this.onOpenChange}
