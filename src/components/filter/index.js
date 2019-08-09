@@ -14,11 +14,22 @@
  *
  */
 import React,{Component} from "react";
-import { Form, Row, Col, Input, Button, Select } from 'antd';
+import { Form, Row, Col, Input, Button, Select, DatePicker } from 'antd'
 import PropTypes from 'prop-types'
-import "./index.less";
+import "./index.less"
+import moment from 'moment'
 const { Option } = Select
-
+const dateFormat = 'YYYY/MM/DD';
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 5 }
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 12 }
+  }
+}
 class Filters extends Component {
   constructor(props) {
     super(props)
@@ -32,10 +43,11 @@ class Filters extends Component {
       children.push(
         <Col xs={12} sm={12} md={12} lg={8} xl={6} key={i}>
           <Form.Item label={formlist[i].name}>
-            {formlist[i].type ? (
+            {formlist[i].type === 'select' ? (
               <Select
                 showSearch
                 placeholder={formlist[i].tips}
+                value={formlist[i].value?formlist[i].value:undefined}
                 optionFilterProp="children"
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
               >
@@ -45,6 +57,17 @@ class Filters extends Component {
                   </Option>
                 ))}
               </Select>
+            ) : formlist[i].type === 'time' ? (
+              <DatePicker
+                value={
+                  formlist[i].value
+                    ? moment(formlist[i].value, dateFormat)
+                    : null
+                }
+                format={dateFormat}
+                placeholder={formlist[i].tips}
+                onChange={this.handleChange.bind(this, formlist[i].keys)}
+              />
             ) : (
               <Input
                 value={formlist[i].value}
@@ -66,9 +89,8 @@ class Filters extends Component {
   handleInput(key, e) {
     this.props.setSeach(key, e.target.value)
   }
-
   handleSearch() {
-    console.log(this.props.formlist)
+    this.props.getData()
     // e.preventDefault()
     // this.props.form.validateFields((err, values) => {
     //   console.log('Received values of form: ', values)
@@ -82,8 +104,11 @@ class Filters extends Component {
 
   render() {
     return (
-      <Form className="ant-advanced-search-form">
-        {/* <Row gutter={24}>{this.getFields()}</Row> */}
+      <Form
+        className="ant-advanced-search-form"
+        labelAlign="left"
+        {...formItemLayout}
+      >
         <Row>{this.getFormItem()}</Row>
         <Row>
           <Col span={24} style={{ textAlign: 'right' }}>

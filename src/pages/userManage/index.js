@@ -1,17 +1,20 @@
 import React, { Component, Fragment } from 'react'
 import { Table, Pagination, Tag } from 'antd'
 import Filters from '_c/filter'
+import moment from 'moment'
 
 class UserManage extends Component {
   constructor(props) {
     super(props)
     this.setSeach = this.setSeach.bind(this)
     this.clearSearch = this.clearSearch.bind(this)
+    this.getData = this.getData.bind(this)
   }
   state = {
     expand: false,
+    a:'',
     selecList: {
-      status: [{ name: '启用', value: 1 }, { name: '停用', value: 0 }]
+      status: [{ name: '启用', value: '1' }, { name: '停用', value: '0' }]
     },
     formlist: [
       { name: '姓名', keys: 'name', value: '', tips: '请输入姓名' },
@@ -24,7 +27,8 @@ class UserManage extends Component {
         tips: '请选择状态',
         type: 'select'
       },
-      { name: '个人爱好', keys: 'interest', value: '', tips: '请输入个人爱好' }
+      { name: '个人爱好', keys: 'interest', value: '', tips: '请输入个人爱好' },
+      { name: '出生日期', keys: 'timer', value: '', tips: '请选择日期',type:"time" }
     ],
     columns: [
       {
@@ -101,6 +105,14 @@ class UserManage extends Component {
       formlist: arr
     })
   }
+  getData(){
+    this.state.formlist.forEach(item => {
+      if ('time' === item.type && item.value) {
+        item.value = moment(item.value).format('YYYY/MM/DD')
+      }
+    })
+    console.log(1,this.state.formlist)
+  }
   // 清空查询条件
   clearSearch() {
     let arr = []
@@ -111,6 +123,7 @@ class UserManage extends Component {
     this.setState({
       formlist: arr
     })
+    console.log(this.state.formlist)
   }
   componentDidMount() {
     console.log(this.state.formlist)
@@ -123,6 +136,7 @@ class UserManage extends Component {
           <Filters
             formlist={formlist}
             setSeach={this.setSeach}
+            getData={this.getData}
             clearSearch={this.clearSearch}
             selecList={selecList}
           />
@@ -137,6 +151,7 @@ class UserManage extends Component {
             <Pagination
               size="small"
               total={50}
+              showTotal={total => `共${total}条`}
               showSizeChanger
               showQuickJumper
             />

@@ -2,12 +2,23 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import '_a/styles/index.less'
 import '_a/lib/animate.css'
-// import '_a/styles/antd/index.less';
 import Page from './Page'
 // 解决create-react-app IE 兼容性问题
 import 'react-app-polyfill/ie9'
 import * as serviceWorker from './serviceWorker'
 
-ReactDOM.render(<Page />, document.getElementById('root'))
+// antd 国际化
+import { LocaleProvider } from 'antd'
+import zh_CN from 'antd/es/locale-provider/zh_CN'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+moment.locale('zh-cn')
+
+ReactDOM.render(
+  <LocaleProvider locale={zh_CN}>
+    <Page />
+  </LocaleProvider>,
+  document.getElementById('root')
+)
 
 serviceWorker.unregister()
