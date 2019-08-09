@@ -8,16 +8,16 @@ import 'react-app-polyfill/ie9'
 import * as serviceWorker from './serviceWorker'
 
 // antd 国际化
-import { LocaleProvider } from 'antd'
+import { ConfigProvider } from 'antd'
 import zh_CN from 'antd/es/locale-provider/zh_CN'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 moment.locale('zh-cn')
 
 ReactDOM.render(
-  <LocaleProvider locale={zh_CN}>
+  <ConfigProvider locale={zh_CN}>
     <Page />
-  </LocaleProvider>,
+  </ConfigProvider>,
   document.getElementById('root')
 )
 
