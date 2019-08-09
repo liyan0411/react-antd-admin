@@ -22,6 +22,7 @@ class CRouter extends Component {
       // Message.warning('暂无访问权限，请登录后再访问！', 1)
       // .then(() =>{
       //   console.log(1)
+      sessionStorage.clear();
       return <Redirect to="/login" />
       // });
     }

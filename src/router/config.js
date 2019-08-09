@@ -13,8 +13,8 @@ export default {
       title: '用户管理',
       icon: 'user',
       meta: {
+        // requireAuth: true,
         path: ['用户管理']
-        // requireAuth: true
       },
       component: 'UserManage'
     },

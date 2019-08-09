@@ -1,5 +1,21 @@
+/**
+ * @name:查询 条件组件
+ * @props接收字段：
+ * 1.formlist(数组) -[]
+ * {
+ *  name:label,
+ *  keys:请求参数,
+ *  value:保存输入框值,
+ *  tips:placeholder值,
+ *  type:类型（下拉框时传入select，默认不传为input）
+ * }
+ * 2.statusList 如果有下拉时 下拉框数据{}
+ * 使用formlist中对应下拉的keys 作为key值
+ *
+ */
 import React,{Component} from "react";
-import { Form, Row, Col, Input, Button, Select } from 'antd'
+import { Form, Row, Col, Input, Button, Select } from 'antd';
+import PropTypes from 'prop-types'
 import "./index.less";
 const { Option } = Select
 
@@ -10,20 +26,20 @@ class Filters extends Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
   getFormItem() {
-    const list = this.props.formlist
+    const { formlist, selecList } = this.props
     const children = []
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < formlist.length; i++) {
       children.push(
         <Col xs={12} sm={12} md={12} lg={8} xl={6} key={i}>
-          <Form.Item label={list[i].name}>
-            {list[i].type ? (
+          <Form.Item label={formlist[i].name}>
+            {formlist[i].type ? (
               <Select
                 showSearch
-                placeholder={list[i].tips}
+                placeholder={formlist[i].tips}
                 optionFilterProp="children"
-                onChange={this.handleChange.bind(this, list[i].keys)}
+                onChange={this.handleChange.bind(this, formlist[i].keys)}
               >
-                {list[i].sels.map(item => (
+                {selecList[formlist[i].keys].map(item => (
                   <Option key={item.value} value={item.value}>
                     {item.name}
                   </Option>
@@ -31,9 +47,9 @@ class Filters extends Component {
               </Select>
             ) : (
               <Input
-                value={list[i].value}
-                onChange={this.handleInput.bind(this, list[i].keys)}
-                placeholder={list[i].tips}
+                value={formlist[i].value}
+                onChange={this.handleInput.bind(this, formlist[i].keys)}
+                placeholder={formlist[i].tips}
               />
             )}
           </Form.Item>
@@ -43,8 +59,8 @@ class Filters extends Component {
     return children
   }
 
-  handleChange(key,val) {
-    this.props.setSeach(key,val)
+  handleChange(key, val) {
+    this.props.setSeach(key, val)
   }
 
   handleInput(key, e) {
@@ -82,5 +98,19 @@ class Filters extends Component {
       </Form>
     )
   }
+}
+// 指定props 的类型
+Filters.propTypes = {
+  formlist: PropTypes.array.isRequired,
+  selecList: PropTypes.object,
+  handleChange: PropTypes.func,
+  handleInput: PropTypes.func,
+  handleSearch: PropTypes.func,
+  handleReset: PropTypes.func
+}
+// 指定 props 的默认值
+Filters.defaultProps = {
+  formlist: [],
+  selecList:{}
 }
 export default Filters;
