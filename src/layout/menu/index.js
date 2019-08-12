@@ -41,8 +41,9 @@ class MenuCustom extends Component {
     })
   }
   render() {
-    const { theme } = this.state
+    const { theme, openKeys } = this.state
     const { collapsed, heights, location } = this.props
+    const defaultProps = this.props.collapsed ? {} : { openKeys }
     return (
       <Fragment>
         <Sider
@@ -58,11 +59,11 @@ class MenuCustom extends Component {
           <div style={{ height: heights - 64 + 'px', overflowY: 'auto' }}>
             <SiderMenu
               menus={routes.menus}
-              // openKeys={openKeys}
               theme={theme}
               mode="inline"
               onOpenChange={this.onOpenChange}
               selectedKeys={[location.pathname]}
+              {...defaultProps}
             />
           </div>
         </Sider>
