@@ -1,7 +1,6 @@
-import { apiPost } from '@/utils/api'
-
-// 登录接口
-export function loginApi(data) {
-  return apiPost('/login/login',data)
-}
-
+/**
+ * 登录页面 api 接口列表
+ */
+const LOGINAPI={};
+LOGINAPI.LOGIN = '/login/login'
+export default LOGINAPI;

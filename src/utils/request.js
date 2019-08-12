@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Message } from 'antd';
-import defaultSettings from './config/setting.js'
+import defaultSettings from '@/config'
 import Loading from "_c/loading";// 封装loading 组件
 
 // create an axios instance   创建axios实例

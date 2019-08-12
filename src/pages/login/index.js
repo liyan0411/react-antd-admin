@@ -1,23 +1,24 @@
-import React,{Component} from "react";
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import "./login.less";
-// import {loginApi} from "@/api/login/index.js";
+import React, { Component } from 'react'
+import { Form, Icon, Input, Button, Checkbox } from 'antd'
+// import { apiPost } from '@/utils/api'
+import URL from '@/api/login'
+import './login.less'
 // import {sSetObject} from "@/utils/index.js";
 
 class LoginView extends Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   state = {
-      loading: false,
-      formLayout: 'horizontal',
-      labelObj: {
-        username: '',
-        password: ''
-      }
+    loading: false,
+    formLayout: 'horizontal',
+    labelObj: {
+      username: '',
+      password: ''
     }
-  handleSubmit(e){
+  }
+  handleSubmit(e) {
     e.preventDefault()
 
     this.props.form.validateFields((err, values) => {
@@ -25,13 +26,14 @@ class LoginView extends Component {
         this.setState({
           loading: true
         })
+        console.log(URL)
         console.log('Received values of form: ', values)
         // let reqData = {
         //   account: values.username,
         //   password: values.password
         // }
-        this.props.history.push('/root/home')
-        // loginApi(reqData)
+        // this.props.history.push('/root/home')
+        // apiPost(URL.LOGIN, reqData)
         //   .then(r => {
         //     // 成功回调
         //     this.setState({
@@ -54,8 +56,7 @@ class LoginView extends Component {
     })
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
     const { getFieldDecorator } = this.props.form
     const { formLayout, loading, labelObj } = this.state
