@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
  * 递归循环 实现多级菜单
  */
 const submenusChild = item => {
-  let cHtml = <div />
-  let childArr = item.subs
+  let cHtml = <div /> ;
+  let childArr = item.children
   // 递归条件
-  if (!childArr && childArr.length > 0) {
+  if (typeof childArr != 'undefined' && childArr.length > 0) {
     cHtml = childArr.map((item, i) => {
       return submenusChild(item)
     })

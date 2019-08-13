@@ -21,7 +21,6 @@ class CRouter extends Component {
     if (r.requireAuth && !isLogin) {
       // Message.warning('暂无访问权限，请登录后再访问！', 1)
       // .then(() =>{
-      //   console.log(1)
       sessionStorage.clear();
       return <Redirect to="/login" />
       // });
@@ -45,7 +44,6 @@ class CRouter extends Component {
                   key={r.route || r.key}
                   // exact  是否全路径匹配
                   path={r.route || r.key}
-                  className="animated fadeIn"
                   // component={Component}
                   // 路由拦截校验
                   render={props => {
@@ -78,7 +76,9 @@ class CRouter extends Component {
                 />
               )
             }
-            return r.component ? route(r) : r.subs.map(r => route(r))
+            return r.component
+              ? route(r)
+              : r.children.map(r => route(r))
           })
         )}
         <Route

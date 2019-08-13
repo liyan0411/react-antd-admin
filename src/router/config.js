@@ -32,7 +32,7 @@ export default {
       key: '/root/auth',
       title: '权限管理',
       icon: 'rocket',
-      subs: [
+      children: [
         {
           key: '/root/role',
           title: '角色管理',
@@ -51,7 +51,7 @@ export default {
       key: '/root/auth1',
       title: '权限管理1',
       icon: 'rocket',
-      subs: [
+      children: [
         {
           key: '/root/role1',
           title: '角色管理',
