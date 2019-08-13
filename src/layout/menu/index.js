@@ -25,6 +25,7 @@ class MenuCustom extends Component {
   }
 
   onOpenChange = openKeys => {
+    console.log(openKeys)
     // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
     const latestOpenKey = openKeys.find(
       key => this.state.openKeys.indexOf(key) === -1
@@ -44,6 +45,7 @@ class MenuCustom extends Component {
     const { theme, openKeys } = this.state
     const { collapsed, heights, location } = this.props
     const defaultProps = this.props.collapsed ? {} : { openKeys }
+
     return (
       <Fragment>
         <Sider

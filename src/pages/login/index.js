@@ -32,7 +32,7 @@ class LoginView extends Component {
         //   account: values.username,
         //   password: values.password
         // }
-        // this.props.history.push('/root/home')
+        this.props.history.push('/root/home')
         // apiPost(URL.LOGIN, reqData)
         //   .then(r => {
         //     // 成功回调
