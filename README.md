@@ -35,7 +35,8 @@ antd-admin
 ├── .env                 # 文件位于项目根目录下，作为全局环境配置文件。
 ├── config-overrudes.js  # 自定义配置
 ├── CHANGELOG.md         # 版本改变日志
-├── .project             # 项目文件
+├── .eslintignore        # eslint忽略文件
+├── .eslintirc           # eslint配置
 ├── .editorconfig        # 编码规范
 ├── .gitignore           # git 忽略项
 ├── yarn.json    				 # 在 `yarn`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
