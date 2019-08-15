@@ -8,8 +8,7 @@ import { connect } from 'react-redux'
 import queryString from 'query-string'
 import AllPages from '../pages'
 import routesConfig from './config'
-import { sGetObject } from '@/utils/index.js'
-import getPageTitle from '@/utils/get-title.js'
+import { sGetObject, getPageTitle } from '@/utils/index.js'
 import { actionCreator } from '@/store/common'
 
 // 根据状态 写路由拦截逻辑

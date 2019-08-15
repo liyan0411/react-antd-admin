@@ -1,6 +1,17 @@
 /**
  * 公共方法封装
  */
+import defaultSettings from '@/config'
+
+const title = defaultSettings.title
+
+export const getPageTitle=(pageTitle)=> {
+  if (pageTitle) {
+    return `${pageTitle} - ${title}`
+  }
+  return `${title}`
+}
+
 // 获取url的参数
 export const queryString = () => {
   let _queryString = {}
