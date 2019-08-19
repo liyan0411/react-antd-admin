@@ -3,20 +3,20 @@ const {
   fixBabelImports,
   addLessLoader,
   addWebpackAlias
-} = require('customize-cra');
-const path = require('path');
-const defaultSettings = require('./src/config');
-
+} = require('customize-cra')
+const path = require('path')
+const defaultSettings = require('./src/config')
 
 const name = defaultSettings.title || 'Antd admin' // page title
 // 自定义配置
-const addCustom =()=>config=>{
-  config.name = name;
+const addCustom = () => config => {
+  config.name = name
+  // module.rules
   // 去除soureMap
-  if (process.env.NODE_ENV === "production") {
-    config.devtool=false;
+  if (process.env.NODE_ENV === 'production') {
+    config.devtool = false
   }
-  return config;
+  return config
 }
 process.env.GENERATE_SOURCEMAP = false //去除生产环境的 sourceMap
 module.exports = override(
