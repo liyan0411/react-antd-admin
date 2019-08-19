@@ -18,3 +18,14 @@ export function apiGet(url,params = {}) {
     params: params
   })
 }
+
+
+// uploadfile 文件下载
+export function apiDl(url,params = {}) {
+  return request({
+    url: url,
+    method: 'post',
+		responseType: 'blob',
+    params: params
+  })
+}
