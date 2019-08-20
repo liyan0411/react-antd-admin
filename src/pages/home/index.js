@@ -1,6 +1,6 @@
 import React,{Component,Fragment} from "react";
 import {connect} from "react-redux";
-import { Steps, Button } from 'antd';
+import { Steps, Button, message } from 'antd'
 import {actionCreator} from "./store/index";
 import beauty from "@/assets/imgs/beauty.jpg";
 const { Step } = Steps;
@@ -48,6 +48,7 @@ const mapState = state => ({
 // 将需要绑定的响应事件注入到组件上
 const mapDispatch=(dispatch)=>({
   changeHomeData(){
+    message.success('This is a success message')
     const action = actionCreator.changeHomeData();
     dispatch(action)
   }

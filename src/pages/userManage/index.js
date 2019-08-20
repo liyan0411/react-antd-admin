@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Table, Pagination, Tag } from 'antd'
-import Filters from '_c/filter'
+import FormQuery from '_c/FormQuery'
 import moment from 'moment'
 
 class UserManage extends Component {
@@ -133,7 +133,7 @@ class UserManage extends Component {
     return (
       <Fragment>
         <div className="view-bg">
-          <Filters
+          <FormQuery
             formlist={formlist}
             setSeach={this.setSeach}
             getData={this.getData}
@@ -141,7 +141,7 @@ class UserManage extends Component {
             selecList={selecList}
           />
           <Table
-            size="middle"
+            size="small"
             pagination={false}
             columns={columns}
             dataSource={data}
