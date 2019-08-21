@@ -23,8 +23,8 @@ export default {
       title: '动画',
       icon: 'radar-chart',
       meta: {
+        // requireAuth: true,
         path: ['动画']
-        // requireAuth: true
       },
       component: 'CSSAnimate'
     },
