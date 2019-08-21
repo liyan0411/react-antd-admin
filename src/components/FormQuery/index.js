@@ -18,8 +18,9 @@ import { Form, Row, Col, Input, Button, Select, DatePicker } from 'antd'
 import PropTypes from 'prop-types'
 import "./index.less"
 import moment from 'moment'
+import defaultSettings from '@/config'
 const { Option } = Select
-const dateFormat = 'YYYY/MM/DD';
+
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -47,7 +48,7 @@ class Filters extends Component {
               <Select
                 showSearch
                 placeholder={formlist[i].tips}
-                value={formlist[i].value?formlist[i].value:undefined}
+                value={formlist[i].value ? formlist[i].value : undefined}
                 optionFilterProp="children"
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
               >
@@ -61,10 +62,13 @@ class Filters extends Component {
               <DatePicker
                 value={
                   formlist[i].value
-                    ? moment(formlist[i].value, dateFormat)
+                    ? moment(
+                        formlist[i].value,
+                        defaultSettings.dateFormat
+                      )
                     : null
                 }
-                format={dateFormat}
+                format={defaultSettings.dateFormat}
                 placeholder={formlist[i].tips}
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
               />

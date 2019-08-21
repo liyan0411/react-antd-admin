@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Table, Pagination, Tag } from 'antd'
 import FormQuery from '_c/FormQuery'
+import defaultSettings from '@/config'
 import moment from 'moment'
 
 class UserManage extends Component {
@@ -108,7 +109,9 @@ class UserManage extends Component {
   getData(){
     this.state.formlist.forEach(item => {
       if ('time' === item.type && item.value) {
-        item.value = moment(item.value).format('YYYY/MM/DD')
+        item.value = moment(item.value).format(
+          defaultSettings.dateFormat
+        )
       }
     })
     console.log(1,this.state.formlist)
@@ -152,6 +155,7 @@ class UserManage extends Component {
               size="small"
               total={50}
               showTotal={total => `共${total}条`}
+              pageSizeOptions={defaultSettings.pageSizeOptions}
               showSizeChanger
               showQuickJumper
             />
