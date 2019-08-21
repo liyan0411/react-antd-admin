@@ -13,13 +13,20 @@ class UserManage extends Component {
   }
   state = {
     expand: false,
-    a:'',
+    a: '',
     selecList: {
       status: [{ name: '启用', value: '1' }, { name: '停用', value: '0' }]
     },
     formlist: [
       { name: '姓名', keys: 'name', value: '', tips: '请输入姓名' },
       { name: '年龄', keys: 'age', value: '', tips: '请输入年龄' },
+      {
+        name: '出生日期',
+        keys: 'timer',
+        value: '',
+        tips: '请选择日期',
+        type: 'time'
+      },
       { name: '性别', keys: 'sex', value: '', tips: '请输入性别' },
       {
         name: '状态',
@@ -28,8 +35,7 @@ class UserManage extends Component {
         tips: '请选择状态',
         type: 'select'
       },
-      { name: '个人爱好', keys: 'interest', value: '', tips: '请输入个人爱好' },
-      { name: '出生日期', keys: 'timer', value: '', tips: '请选择日期',type:"time" }
+      { name: '个人爱好', keys: 'interest', value: '', tips: '请输入个人爱好' }
     ],
     columns: [
       {
@@ -106,15 +112,13 @@ class UserManage extends Component {
       formlist: arr
     })
   }
-  getData(){
+  getData() {
     this.state.formlist.forEach(item => {
       if ('time' === item.type && item.value) {
-        item.value = moment(item.value).format(
-          defaultSettings.dateFormat
-        )
+        item.value = moment(item.value).format(defaultSettings.dateFormat)
       }
     })
-    console.log(1,this.state.formlist)
+    console.log(1, this.state.formlist)
   }
   // 清空查询条件
   clearSearch() {
@@ -133,6 +137,22 @@ class UserManage extends Component {
   }
   render() {
     const { formlist, selecList, columns, data } = this.state
+    const rowSelection = {
+      onChange: (selectedRowKeys, selectedRows) => {
+        console.log(
+          `selectedRowKeys: ${selectedRowKeys}`,
+          'selectedRows: ',
+          selectedRows
+        )
+      },
+      onSelect: (record, selected, selectedRows) => {
+        console.log(record, selected, selectedRows)
+      },
+      onSelectAll: (selected, selectedRows, changeRows) => {
+        console.log(selected, selectedRows, changeRows)
+      }
+    }
+
     return (
       <Fragment>
         <div className="view-bg">
@@ -146,6 +166,7 @@ class UserManage extends Component {
           <Table
             size="small"
             pagination={false}
+            rowSelection={rowSelection}
             columns={columns}
             dataSource={data}
             bordered
