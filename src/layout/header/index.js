@@ -72,11 +72,11 @@ class HeaderCustom extends Component {
           style={{ background: 'none' }}
         >
           <Menu.Item key="full" onClick={this.screenFull}>
-            {this.state.fullscreen ? (
-              <Icon type="shrink" />
-            ) : (
-              <Icon type="arrows-alt" />
-            )}
+            <Icon
+              type={
+                this.state.fullscreen ? 'fullscreen-exit' : 'fullscreen'
+              }
+            />
           </Menu.Item>
           <Menu.Item key="mail">
             <Icon type="user" />

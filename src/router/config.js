@@ -10,11 +10,11 @@ export default {
     },
     {
       key: '/root/userManage',
-      title: '用户管理',
+      title: '表格',
       icon: 'user',
       meta: {
         // requireAuth: true,
-        path: ['用户管理']
+        path: ['表格']
       },
       component: 'UserManage'
     },
@@ -31,7 +31,7 @@ export default {
     {
       key: '/root/auth',
       title: '权限管理',
-      icon: 'rocket',
+      icon: 'database',
       children: [
         {
           key: '/root/role',
@@ -48,21 +48,15 @@ export default {
       ]
     },
     {
-      key: '/root/auth1',
-      title: '权限管理1',
-      icon: 'rocket',
+      key: '/root/ui',
+      title: 'UI',
+      icon: 'project',
       children: [
         {
-          key: '/root/role1',
-          title: '角色管理',
+          key: '/root/gallery',
+          title: '画廊',
           meta: {},
-          component: 'Role'
-        },
-        {
-          key: '/root/menumanage1',
-          title: '菜单管理',
-          meta: {},
-          component: 'MenuManage'
+          component: 'Gallery'
         }
       ]
     }

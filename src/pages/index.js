@@ -7,7 +7,8 @@ import Home from "./home/index";
 import UserManage from "./userManage/index";
 import Role from "./auth/role/index";
 import MenuManage from './auth/menu/index';
-import RoleDetail from './auth/role/roleDetail'
+import RoleDetail from './auth/role/roleDetail';
+import Gallery from "./ui/gallery"
 // import CSSAnimate from './animate'
 const CSSAnimate = Loadable({
   // 按需加载cssanimate
@@ -21,5 +22,6 @@ export default {
   Role,
   MenuManage,
   RoleDetail,
-  CSSAnimate
+  CSSAnimate,
+  Gallery
 }

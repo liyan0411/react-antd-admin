@@ -1,30 +1,16 @@
 import React,{Component,Fragment} from "react";
 import {connect} from "react-redux";
-import { Steps, Button, message } from 'antd'
+import { Steps, Button, message, Statistic, Card, Row, Col, Icon } from 'antd'
 import {actionCreator} from "./store/index";
-import beauty from "@/assets/imgs/beauty.jpg";
 const { Step } = Steps;
 
 class Home extends Component {
 	render(){
-    const { homeData,list, changeHomeData } = this.props;
+    const { homeData, changeHomeData } = this.props;
     // const newList=list.toJS();
 		return (
       <Fragment>
         <div className="view-bg">
-          <img src={beauty} alt="" />
-          <h1>我是首页home</h1>
-          <Button type="primary" onClick={changeHomeData}>
-            修改数据
-          </Button>
-          {homeData}
-          <ul>
-            {list.map(r => {
-              return <li key={r}>{r}</li>
-            })}
-          </ul>
-          <br />
-          ----------------------------------
           <Steps current={1}>
             <Step title="Finished" description="This is a description." />
             <Step
@@ -33,6 +19,49 @@ class Home extends Component {
             />
             <Step title="Waiting" description="This is a description." />
           </Steps>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Card>
+                <Statistic
+                  title="Active"
+                  value={11.28}
+                  precision={2}
+                  valueStyle={{ color: '#3f8600' }}
+                  prefix={<Icon type="arrow-up" />}
+                  suffix="%"
+                />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card>
+                <Statistic
+                  title="Idle"
+                  value={9.3}
+                  precision={2}
+                  valueStyle={{ color: '#cf1322' }}
+                  prefix={<Icon type="arrow-down" />}
+                  suffix="%"
+                />
+              </Card>
+            </Col>{' '}
+            <Col span={12}>
+              <Statistic title="Active Users" value={112893} />
+            </Col>
+            <Col span={12}>
+              <Statistic
+                title="Account Balance (CNY)"
+                value={homeData}
+                precision={2}
+              />
+              <Button
+                style={{ marginTop: 16 }}
+                type="primary"
+                onClick={changeHomeData}
+              >
+                Recharge
+              </Button>
+            </Col>
+          </Row>
         </div>
       </Fragment>
     )

@@ -6,7 +6,7 @@ import {actionTypes} from "./index.js"
 // 	list:["你好sad","撒大声地","送达ad"]
 // })
 const defaultState = {
-  homeData: '我是首页store中的数据',
+  homeData: 123,
   list: ['你好sad', '撒大声地', '送达ad']
 }
 export default (state=defaultState,action)=>{
