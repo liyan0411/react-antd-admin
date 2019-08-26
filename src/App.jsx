@@ -4,7 +4,6 @@ import MenuCustom from '@/layout/menu'
 import HeaderCustom from '@/layout/header'
 import FooterCustom from '@/layout/footer'
 import Routes from './router'
-import BreadcrumbCustom from '_c/breadcrumb'
 import {connect} from "react-redux"
 
 const { Content } = Layout
@@ -41,7 +40,6 @@ class App extends Component {
   }
   render() {
     let { heights, collapsed } = this.state
-    let { pathList } = this.props;
     return (
       <div className="App">
         <Layout style={{ height: '100%' }}>
@@ -63,7 +61,6 @@ class App extends Component {
                   minHeight: heights - 148 + 'px'
                 }}
               >
-                {pathList.length!==0?<BreadcrumbCustom lists={pathList} />:null}
                 <Routes />
               </Content>
               <FooterCustom />

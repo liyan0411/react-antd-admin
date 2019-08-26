@@ -3,12 +3,16 @@ import { Table, Pagination, Tag } from 'antd'
 import FormQuery from '_c/FormQuery'
 import defaultSettings from '@/config'
 import moment from 'moment'
+import BreadcrumbCustom from '_c/breadcrumb'
 
 class Tables extends Component {
   constructor(props) {
     super(props)
     this.setSeach = this.setSeach.bind(this)
     this.clearSearch = this.clearSearch.bind(this)
+    this.setChange = this.setChange.bind(this)
+    this.setSizeChange = this.setSizeChange.bind(this)
+
     this.getData = this.getData.bind(this)
   }
   state = {
@@ -39,9 +43,22 @@ class Tables extends Component {
     ],
     columns: [
       {
+        title: '序号',
+        dataIndex: 'key',
+        key: 'key'
+      },
+      {
         title: 'Name',
         dataIndex: 'name',
-        key: 'name'
+        key: 'name',
+        render: (text, row, index) => (
+          <span
+            style={{ color: '#1890ff' }}
+            onClick={() => this.jumpDetail(row)}
+          >
+            {row.name}
+          </span>
+        )
       },
       {
         title: 'Cash Assets',
@@ -75,10 +92,12 @@ class Tables extends Component {
         )
       }
     ],
+    currentPage: 1,
+    pageSize: 10,
     data: [
       {
         key: '1',
-        name: 'John Brown',
+        name: 'John Brown 1',
         money: '￥300,000.00',
         address: 'New York No. 1 Lake Park',
         tags: ['nice', 'developer']
@@ -211,6 +230,14 @@ class Tables extends Component {
       }
     ]
   }
+
+  jumpDetail = row => {
+    console.log(row)
+    this.props.history.push({
+      pathname: '/root/roleDetail',
+      query: { id: row.key }
+    })
+  }
   // 设置查询条件
   setSeach(key, val) {
     let arr = []
@@ -230,7 +257,6 @@ class Tables extends Component {
         item.value = moment(item.value).format(defaultSettings.dateFormat)
       }
     })
-    console.log(1, this.state.formlist)
   }
   // 清空查询条件
   clearSearch() {
@@ -244,11 +270,37 @@ class Tables extends Component {
     })
     console.log(this.state.formlist)
   }
+  setChange(page, pageSize) {
+    this.setState({
+      currentPage: page
+    })
+    console.log(page, pageSize)
+  }
+  setSizeChange(current, size) {
+    console.log(current, size)
+    this.setState({
+      currentPage: current,
+      pageSize: size
+    })
+  }
+  componentWillUnactivate() {
+    console.log('componentWillUnactivate')
+  }
+  componentDidActivate() {
+    console.log('componentDidActivate')
+  }
   componentDidMount() {
-    console.log(this.state.formlist)
+    console.log('componentDidMount')
   }
   render() {
-    const { formlist, selecList, columns, data } = this.state
+    const {
+      formlist,
+      selecList,
+      columns,
+      data,
+      currentPage,
+      pageSize
+    } = this.state
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {
         console.log(
@@ -264,10 +316,13 @@ class Tables extends Component {
         console.log(selected, selectedRows, changeRows)
       }
     }
-
+    const getRow = () => {
+      return data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    }
     return (
       <Fragment>
-        <div className="view-bg ">
+        <BreadcrumbCustom lists={['表格']} />
+        <div className="view-bg">
           <FormQuery
             formlist={formlist}
             setSeach={this.setSeach}
@@ -275,21 +330,26 @@ class Tables extends Component {
             clearSearch={this.clearSearch}
             selecList={selecList}
           />
+
           <div>
             <Table
               size="small"
               pagination={false}
               rowSelection={rowSelection}
               columns={columns}
-              dataSource={data}
+              dataSource={getRow()}
               bordered
             />
             <div className="page-view">
               <Pagination
                 size="small"
-                total={50}
-                showTotal={total => `共${total}条`}
+                total={data.length}
+                pageSize={pageSize}
+                current={currentPage}
+                showTotal={total => `共${data.length}条`}
                 pageSizeOptions={defaultSettings.pageSizeOptions}
+                onShowSizeChange={this.setSizeChange}
+                onChange={this.setChange}
                 showSizeChanger
                 showQuickJumper
               />

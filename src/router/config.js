@@ -14,7 +14,7 @@ export default {
       icon: 'user',
       meta: {
         // requireAuth: true,
-        path: ['表格']
+        keepAlive: true //此组件需要被缓存
       },
       component: 'Tables'
     },
@@ -24,7 +24,6 @@ export default {
       icon: 'radar-chart',
       meta: {
         // requireAuth: true,
-        path: ['动画']
       },
       component: 'CSSAnimate'
     },
