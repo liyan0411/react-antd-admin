@@ -4,7 +4,7 @@
 import Loadable from 'react-loadable'; // react 组件按需引入
 import Loading from "./Loading";
 import Home from "./home/index";
-import UserManage from "./userManage/index";
+import Tables from './table/index'
 import Role from "./auth/role/index";
 import MenuManage from './auth/menu/index';
 import RoleDetail from './auth/role/roleDetail';
@@ -18,7 +18,7 @@ const CSSAnimate = Loadable({
 })
 export default {
   Home,
-  UserManage,
+  Tables,
   Role,
   MenuManage,
   RoleDetail,

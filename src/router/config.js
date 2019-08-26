@@ -9,14 +9,14 @@ export default {
       component: 'Home'
     },
     {
-      key: '/root/userManage',
+      key: '/root/table',
       title: '表格',
       icon: 'user',
       meta: {
         // requireAuth: true,
         path: ['表格']
       },
-      component: 'UserManage'
+      component: 'Tables'
     },
     {
       key: '/root/cssanimate',

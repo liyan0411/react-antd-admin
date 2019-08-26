@@ -4,7 +4,7 @@ import FormQuery from '_c/FormQuery'
 import defaultSettings from '@/config'
 import moment from 'moment'
 
-class UserManage extends Component {
+class Tables extends Component {
   constructor(props) {
     super(props)
     this.setSeach = this.setSeach.bind(this)
@@ -96,6 +96,118 @@ class UserManage extends Component {
         money: '￥120,000.00',
         address: 'Sidney No. 1 Lake Park',
         tags: ['cool', 'teacher']
+      },
+      {
+        key: '4',
+        name: 'John Brown',
+        money: '￥300,000.00',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer']
+      },
+      {
+        key: '5',
+        name: 'Jim Green',
+        money: '￥1,256,000.00',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser']
+      },
+      {
+        key: '6',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
+      },
+      {
+        key: '7',
+        name: 'John Brown',
+        money: '￥300,000.00',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer']
+      },
+      {
+        key: '8',
+        name: 'Jim Green',
+        money: '￥1,256,000.00',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser']
+      },
+      {
+        key: '9',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
+      },
+      {
+        key: '10',
+        name: 'John Brown',
+        money: '￥300,000.00',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer']
+      },
+      {
+        key: '11',
+        name: 'Jim Green',
+        money: '￥1,256,000.00',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser']
+      },
+      {
+        key: '12',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
+      },
+      {
+        key: '13',
+        name: 'John Brown',
+        money: '￥300,000.00',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer']
+      },
+      {
+        key: '14',
+        name: 'Jim Green',
+        money: '￥1,256,000.00',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser']
+      },
+      {
+        key: '15',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
+      },
+      {
+        key: '16',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
+      },
+      {
+        key: '17',
+        name: 'John Brown',
+        money: '￥300,000.00',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer']
+      },
+      {
+        key: '18',
+        name: 'Jim Green',
+        money: '￥1,256,000.00',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser']
+      },
+      {
+        key: '19',
+        name: 'Joe Black',
+        money: '￥120,000.00',
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher']
       }
     ]
   }
@@ -155,7 +267,7 @@ class UserManage extends Component {
 
     return (
       <Fragment>
-        <div className="view-bg">
+        <div className="view-bg ">
           <FormQuery
             formlist={formlist}
             setSeach={this.setSeach}
@@ -163,27 +275,29 @@ class UserManage extends Component {
             clearSearch={this.clearSearch}
             selecList={selecList}
           />
-          <Table
-            size="small"
-            pagination={false}
-            rowSelection={rowSelection}
-            columns={columns}
-            dataSource={data}
-            bordered
-          />
-          <div className="page-view">
-            <Pagination
+          <div>
+            <Table
               size="small"
-              total={50}
-              showTotal={total => `共${total}条`}
-              pageSizeOptions={defaultSettings.pageSizeOptions}
-              showSizeChanger
-              showQuickJumper
+              pagination={false}
+              rowSelection={rowSelection}
+              columns={columns}
+              dataSource={data}
+              bordered
             />
+            <div className="page-view">
+              <Pagination
+                size="small"
+                total={50}
+                showTotal={total => `共${total}条`}
+                pageSizeOptions={defaultSettings.pageSizeOptions}
+                showSizeChanger
+                showQuickJumper
+              />
+            </div>
           </div>
         </div>
       </Fragment>
     )
   }
 }
-export default UserManage
+export default Tables
