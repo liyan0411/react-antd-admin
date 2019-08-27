@@ -5,13 +5,13 @@ import {actionTypes} from "./index"
 //   current: window.location.hash.substr(1)
 // })
 const defaultState = {
-  pathList:[]
+  isBack:false
 };
 export default (state=defaultState,action)=>{
 	switch (action.type) {
-    case actionTypes.CHANGE_PATH:
+    case actionTypes.CHANGE_BACK:
       return Object.assign({}, state, {
-        pathList: action.pathList
+        isBack: action.isBack
       })
     default:
       return state

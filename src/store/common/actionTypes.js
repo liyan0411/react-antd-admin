@@ -1,1 +1,1 @@
-export const CHANGE_PATH = 'change_path';
+export const CHANGE_BACK = 'change_back'

@@ -4,7 +4,6 @@ import FormQuery from '_c/FormQuery'
 import defaultSettings from '@/config'
 import moment from 'moment'
 import BreadcrumbCustom from '_c/breadcrumb'
-
 class Tables extends Component {
   constructor(props) {
     super(props)
@@ -233,7 +232,7 @@ class Tables extends Component {
   }
 
   jumpDetail = row => {
-    console.log(row)
+    // console.log(row)
     this.props.history.push({
       pathname: '/root/roleDetail',
       query: { id: row.key }
@@ -269,23 +268,23 @@ class Tables extends Component {
     this.setState({
       formlist: arr
     })
-    console.log(this.state.formlist)
+    // console.log(this.state.formlist)
   }
   setChange(page, pageSize) {
     this.setState({
       currentPage: page
     })
-    console.log(page, pageSize)
+    // console.log(page, pageSize)
   }
   setSizeChange(current, size) {
-    console.log(current, size)
+    // console.log(current, size)
     this.setState({
       currentPage: current,
       pageSize: size
     })
   }
   componentDidMount() {
-    console.log('componentDidMount')
+    // console.log('componentDidMount')
   }
   render() {
     const {
@@ -315,7 +314,7 @@ class Tables extends Component {
       return data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     }
     return (
-      <Fragment>
+      <div>
         <BreadcrumbCustom lists={['表格']} />
         <div className="view-bg">
           <FormQuery
@@ -326,7 +325,7 @@ class Tables extends Component {
             selecList={selecList}
           />
 
-          <div>
+          <Fragment>
             <Table
               size="small"
               pagination={false}
@@ -349,9 +348,9 @@ class Tables extends Component {
                 showQuickJumper
               />
             </div>
-          </div>
+          </Fragment>
         </div>
-      </Fragment>
+      </div>
     )
   }
 }
