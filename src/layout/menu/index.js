@@ -1,18 +1,18 @@
-import React,{Component,Fragment} from "react";
-import { Layout } from 'antd';
-import{ withRouter } from 'react-router-dom';
-import routes from "@/router/config.js";
-import SiderMenu from "./siderMenu";
+import React, { Component, Fragment } from 'react'
+import { Layout } from 'antd'
+import { withRouter } from 'react-router-dom'
+import routes from '@/router/config.js'
+import SiderMenu from './siderMenu'
 import { sSetObject, sGetObject } from '@/utils'
 
-const { Sider} = Layout;
+const { Sider } = Layout
 const logo = {
   height: '32px',
   background: 'rgba(255, 255, 255, 0.2)',
   margin: '16px',
   color: '#fff',
   textAlign: 'center',
-  lineHeight:'32px'
+  lineHeight: '32px'
 }
 class MenuCustom extends Component {
   // constructor(props) {
@@ -25,20 +25,31 @@ class MenuCustom extends Component {
   }
 
   onOpenChange = openKeys => {
+    const { collapsed } = this.props
+    if (!collapsed) {
+      // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
+      const latestOpenKey = openKeys.find(
+        key => this.state.openKeys.indexOf(key) === -1
+      )
+      sSetObject('menu', latestOpenKey)
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : []
+      })
+    }
+  }
+  componentDidMount() {
+    this.setState({
+      openKeys: [sGetObject('menu')]
+    })
+  }
+
+  handleClick = openKeys => {
     console.log(openKeys)
-    // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
-    const latestOpenKey = openKeys.find(
-      key => this.state.openKeys.indexOf(key) === -1
-    )
+    const paths = openKeys.keyPath;
+    const latestOpenKey = paths[paths.length-1];
     sSetObject('menu', latestOpenKey)
     this.setState({
       openKeys: latestOpenKey ? [latestOpenKey] : []
-    })
-  }
-  componentDidMount() {
-
-    this.setState({
-      openKeys: [sGetObject('menu')]
     })
   }
   render() {
@@ -61,6 +72,7 @@ class MenuCustom extends Component {
           <div style={{ height: heights - 64 + 'px', overflowY: 'auto' }}>
             <SiderMenu
               menus={routes.menus}
+              onClick={this.handleClick}
               theme={theme}
               mode="inline"
               onOpenChange={this.onOpenChange}
