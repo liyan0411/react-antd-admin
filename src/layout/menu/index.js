@@ -44,7 +44,6 @@ class MenuCustom extends Component {
   }
 
   handleClick = openKeys => {
-    console.log(openKeys)
     const paths = openKeys.keyPath;
     const latestOpenKey = paths[paths.length-1];
     sSetObject('menu', latestOpenKey)
