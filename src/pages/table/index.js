@@ -54,6 +54,7 @@ class Tables extends Component {
         render: (text, row, index) => (
           <span
             style={{ color: '#1890ff' }}
+            className="pointer"
             onClick={() => this.jumpDetail(row)}
           >
             {row.name}
@@ -282,12 +283,6 @@ class Tables extends Component {
       currentPage: current,
       pageSize: size
     })
-  }
-  componentWillUnactivate() {
-    console.log('componentWillUnactivate')
-  }
-  componentDidActivate() {
-    console.log('componentDidActivate')
   }
   componentDidMount() {
     console.log('componentDidMount')

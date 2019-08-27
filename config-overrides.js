@@ -2,6 +2,7 @@ const {
   override,
   fixBabelImports,
   addLessLoader,
+  addBabelPlugins, // babel插件配置函数
   addWebpackAlias
 } = require('customize-cra')
 const path = require('path')
@@ -20,6 +21,15 @@ const addCustom = () => config => {
 }
 process.env.GENERATE_SOURCEMAP = false //去除生产环境的 sourceMap
 module.exports = override(
+  addBabelPlugins(
+    // 支持装饰器
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        legacy: true
+      }
+    ]
+  ),
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',

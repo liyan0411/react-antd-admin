@@ -3,14 +3,11 @@
  */
 import React, { Component } from 'react'
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { Provider, KeepAlive } from 'react-keep-alive'
 // import { Message } from 'antd';
 import queryString from 'query-string'
 import AllPages from '../pages'
 import routesConfig from './config'
 import { sGetObject, getPageTitle } from '@/utils/index.js'
-import { actionCreator } from '@/store/common'
 
 // 根据状态 写路由拦截逻辑
 class CRouter extends Component {
@@ -32,9 +29,7 @@ class CRouter extends Component {
     document.title = getPageTitle(val || '')
   }
   render() {
-    const { changePath } = this.props
     return (
-      <Provider>
         <Switch>
           {Object.keys(routesConfig).map(key =>
             routesConfig[key].map(r => {
@@ -48,13 +43,7 @@ class CRouter extends Component {
                     // component={Component}
                     // 路由拦截校验
                     render={props => {
-                      const reg = /\?\S*/g
-                      // 控制是否显示 面包屑
-                      if (r.meta.path) {
-                        changePath(r.meta.path)
-                      } else {
-                        changePath([])
-                      }
+                      const reg = /\?\S*/g;
                       // 匹配?及其以后字符串
                       const queryParams = window.location.hash.match(reg)
                       // 去除?的参数
@@ -70,18 +59,8 @@ class CRouter extends Component {
                           ? queryString.parse(queryParams[0])
                           : {}
                       }
-                      let wrappedComponent = <Component {...merge} />
-                      if (r.meta.keepAlive) {
-                        wrappedComponent = (
-                          <KeepAlive name="r.key">
-                            <Component {...merge} />
-                          </KeepAlive>
-                        )
-                      }
-
-                      console.log(r.meta)
                       // 重新包装组件 相关路由字段 通过props 传递进去 否则使用route 相关会报错
-                      // const wrappedComponent = <Component {...merge} />
+                      const wrappedComponent = <Component {...merge} />
                       this.setTitle(r.title)
                       return this.requireAuth(r.meta, wrappedComponent)
                     }}
@@ -98,17 +77,8 @@ class CRouter extends Component {
             }}
           />
         </Switch>
-      </Provider>
     )
   }
 }
-const mapDispatch = dispatch => ({
-  changePath(r) {
-    const action = actionCreator.changePath(r)
-    dispatch(action)
-  }
-})
-export default connect(
-  null,
-  mapDispatch
-)(withRouter(CRouter))
+
+export default withRouter(CRouter);
