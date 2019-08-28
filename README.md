@@ -1,4 +1,6 @@
-## 目录结构
+[简体中文](./README.md)
+
+## 工程结构
 ```
 antd-admin
 ├── build                # 打包后生成的文件
@@ -10,9 +12,9 @@ antd-admin
         ├── fonts  		      # 字体图标库
 	      ├── imgs  		      # 图片
         ├── lib  		        # 静态依赖包
-        ├── styles  		    # 样式
-	      └── theme       	  # less变量配置
+        └── styles  		    # 样式
     ├── components       	# 全局公用组件
+    ├── config       	    # 全局公用配置
 		├── layout           	# 布局组件
         ├── footer  		    # 底部
         ├── header  		    # 头部
@@ -39,7 +41,8 @@ antd-admin
 ├── .eslintirc           # eslint配置
 ├── .editorconfig        # 编码规范
 ├── .gitignore           # git 忽略项
-├── yarn.json    				 # 在 `yarn`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
+├── README.md            # 说明文件
+├── yarn.lock || package-lock.json   # 在 `yarn||npm`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
 └── package.json         # package.json 项目相关以及插件版本
 
 ### store 模块化规范
