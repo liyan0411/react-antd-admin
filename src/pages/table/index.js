@@ -3,7 +3,7 @@ import { Table, Pagination, Tag } from 'antd'
 import FormQuery from '_c/FormQuery'
 import defaultSettings from '@/config'
 import moment from 'moment'
-import BreadcrumbCustom from '_c/breadcrumb'
+import BreadcrumbCustom from '_c/BreadCrumb'
 class Tables extends Component {
   constructor(props) {
     super(props)
