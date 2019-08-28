@@ -2,11 +2,12 @@
  * 菜单栏 路由配置文件
  */
 import React, { Component } from 'react'
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
+import { Route, Redirect, withRouter } from 'react-router-dom'
 // import { Message } from 'antd';
 import queryString from 'query-string'
 import AllPages from '../pages'
 import routesConfig from './config'
+import AnimatedSwitch from '_c/AnimatedSwitch'
 import { sGetObject, getPageTitle } from '@/utils/index.js'
 
 // 根据状态 写路由拦截逻辑
@@ -30,7 +31,7 @@ class CRouter extends Component {
   }
   render() {
     return (
-        <Switch>
+        <AnimatedSwitch>
           {Object.keys(routesConfig).map(key =>
             routesConfig[key].map(r => {
               const route = r => {
@@ -76,7 +77,7 @@ class CRouter extends Component {
               return <Redirect to="/404" />
             }}
           />
-        </Switch>
+        </AnimatedSwitch>
     )
   }
 }

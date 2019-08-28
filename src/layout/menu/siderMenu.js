@@ -8,14 +8,15 @@ import { Link } from 'react-router-dom'
  */
 const renderMenu = data => {
   return data.map(item => {
+    // 递归条件
     if (item.children) {
       return (
         <Menu.SubMenu
           key={item.key}
           title={
             <span>
-              <Icon type="mail" />
-              <span>{item.title}</span>
+              {item.icon && <Icon type={item.icon} />}
+              <span className="nav-text">{item.title}</span>
             </span>
           }
         >

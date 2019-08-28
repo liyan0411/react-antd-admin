@@ -1,0 +1,29 @@
+// AnimatedSwitch.less 路由切换动画
+
+// 很多动画都需要给路由对应组件最外层元素设置position: absolute;
+.route {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*设置进场前透明度为0*/
+.fade-enter {
+  opacity: 0;
+}
+/*设置进场过程中 透明度为1，放缩为1，放缩的位置为左上角，持续时间为300ms，时间曲是ease-out */
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+/*设置退场前透明度为1，放缩为1*/
+.fade-exit {
+  opacity: 1;
+}
+/*设置退场过程中 透明度为0 持续时间，时间曲是ease-out */
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}

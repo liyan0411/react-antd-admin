@@ -8,7 +8,7 @@
     "no-mixed-spaces-and-tabs": 0,
     "no-unreachable": 1,
     "comma-dangle": 2,
-    "no-alert": 2,
+    "no-alert": 0,
     "no-multo-comp":0
   }
 }

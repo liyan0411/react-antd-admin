@@ -39,7 +39,7 @@ class CSSAnimate extends Component {
                     <p>
                       {/* <Icon type="exclamation-circle" antd /> */}
                       <b>网站：</b>
-                      <a href="http://daneden.github.io/animate.css/">
+                      <a target="blank" href="http://daneden.github.io/animate.css/">
                         www.github.com/animate
                       </a>
                     </p>
