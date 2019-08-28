@@ -10,15 +10,15 @@ antd-admin
     ├── api           	 	# 接口（和page文件对应）
     ├── assets           	# 资源文件
         ├── fonts  		      # 字体图标库
-	      ├── imgs  		      # 图片
+        ├── imgs  		      # 图片
         ├── lib  		        # 静态依赖包
         └── styles  		    # 样式
     ├── components       	# 全局公用组件
     ├── config       	    # 全局公用配置
-		├── layout           	# 布局组件
+    ├── layout           	# 布局组件
         ├── footer  		    # 底部
         ├── header  		    # 头部
-	      └── menu           	# 左侧菜单
+        └── menu           	# 左侧菜单
     ├── pages            	# view 页面
         ├── animate  		    # 动画页
         ├── login 	        # 登录
@@ -28,9 +28,9 @@ antd-admin
     ├── router           	# 路由配置
     ├── store          	 	# 状态管理
     ├── utils         	 	# 公用方法封装
-		├── App.js           	# 内部视图结构
+    ├── App.js           	# 内部视图结构
     ├── App.test.js      	# 自动化测试
-		├── index.js         	# 入口文件，挂载
+    ├── index.js         	# 入口文件，挂载
     ├── Page.js          	# 主视图路由
     └── serviceWorker.js 	# 注册了一个service worker
 <!-- ervice worker是在后台运行的一个线程，可以用来处理离线缓存、消息推送、后台自动更新等任务 -->
@@ -46,9 +46,9 @@ antd-admin
 └── package.json         # package.json 项目相关以及插件版本
 
 ### store 模块化规范
-	├── store         	# 模块-store文件
+  ├── store         	# 模块-store文件
     ├── index.js      	  # 统一暴露
-		├── reducer.js        # 负责生成 State
+    ├── reducer.js        # 负责生成 State
     ├── actionTypes.js    # 定义函数类型
     └── actionCreator.js 	# 函数创建器
 ```
