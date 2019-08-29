@@ -292,7 +292,7 @@ class CSSAnimate extends Component {
                 </TabPane>
               </Tabs>
             </Sider>
-            <Content style={{background:"#fff"}}>
+            <Content style={{background:"#fff",overflow:"hidden"}}>
               <CSSAnimates id="animateMe" type={this.state.animateName}>
                 <strong>Animate</strong> Me<strong>!</strong>
               </CSSAnimates>

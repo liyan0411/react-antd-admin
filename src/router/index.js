@@ -35,6 +35,10 @@ class CRouter extends Component {
           {Object.keys(routesConfig).map(key =>
             routesConfig[key].map(r => {
               const route = r => {
+                // 递归条件
+                if (r.children) {
+                  return r.children.map(r => route(r));
+                }
                 const Component = AllPages[r.component]
                 return (
                   <Route

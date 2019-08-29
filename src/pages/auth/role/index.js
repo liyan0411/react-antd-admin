@@ -1,5 +1,6 @@
 import React,{Component,Fragment} from "react";
 import {Button} from "antd";
+import Panel from '_c/Panel'
 
 class Role extends Component {
   jumpDetail=()=>{
@@ -19,6 +20,9 @@ class Role extends Component {
           <Button type="primary" onClick={this.jumpDetail}>
             跳转
           </Button>
+          <Panel title="基本用法">
+            <h1>"你好啊"</h1>
+          </Panel>
         </div>
       </Fragment>
     )

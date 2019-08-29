@@ -52,10 +52,18 @@ export default {
       icon: 'project',
       children: [
         {
-          key: '/root/gallery',
+          key: '/root/gallery1',
           title: '画廊',
           meta: {},
-          component: 'Gallery'
+          // component: 'Gallery',
+          children: [
+            {
+              key: '/root/hl',
+              title: '画廊1',
+              meta: {},
+              component: 'Hl'
+            }
+          ]
         }
       ]
     }

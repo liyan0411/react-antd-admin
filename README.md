@@ -9,22 +9,22 @@ antd-admin
 ├── src                  # 源代码
     ├── api           	 	# 接口（和page文件对应）
     ├── assets           	# 资源文件
-        ├── fonts  		      # 字体图标库
-        ├── imgs  		      # 图片
-        ├── lib  		        # 静态依赖包
-        └── styles  		    # 样式
-    ├── components       	# 全局公用组件
-    ├── config       	    # 全局公用配置
-    ├── layout           	# 布局组件
-        ├── footer  		    # 底部
-        ├── header  		    # 头部
-        └── menu           	# 左侧菜单
-    ├── pages            	# view 页面
-        ├── animate  		    # 动画页
-        ├── login 	        # 登录
-        ├── home          	# 首页
+        ├── fonts           # 字体图标库
+        ├── imgs            # 图片
+        ├── lib             # 静态依赖包
+        └── styles          # 样式
+    ├── components        # 全局公用组件
+    ├── config            # 全局公用配置
+    ├── layout            # 布局组件
+        ├── footer          # 底部
+        ├── header          # 头部
+        └── menu            # 左侧菜单
+    ├── pages             # view 页面
+        ├── animate         # 动画页
+        ├── login           # 登录
+        ├── home            # 首页
         ├── Loading.js      # 异步加载组件loading
-        └── index.js  		  # allpage
+        └── index.js        # allpage
     ├── router           	# 路由配置
     ├── store          	 	# 状态管理
     ├── utils         	 	# 公用方法封装
@@ -42,7 +42,7 @@ antd-admin
 ├── .editorconfig        # 编码规范
 ├── .gitignore           # git 忽略项
 ├── README.md            # 说明文件
-├── yarn.lock || package-lock.json   # 在 `yarn||npm`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
+├── yarn.lock            # || package-lock.json 在 `yarn||npm`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
 └── package.json         # package.json 项目相关以及插件版本
 
 ### store 模块化规范

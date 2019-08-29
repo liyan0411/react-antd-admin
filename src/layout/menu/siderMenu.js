@@ -15,7 +15,7 @@ const renderMenu = data => {
           key={item.key}
           title={
             <span>
-              {item.icon && <Icon type={item.icon} />}
+              {item.icon?<Icon type={item.icon} />:''}
               <span className="nav-text">{item.title}</span>
             </span>
           }
@@ -27,7 +27,7 @@ const renderMenu = data => {
       return (
         <Menu.Item key={item.key}>
           <Link to={item.key + (item.query || '')}>
-            {item.icon && <Icon type={item.icon} />}
+            {item.icon ? <Icon type={item.icon} /> : ''}
             <span className="nav-text">{item.title}</span>
           </Link>
         </Menu.Item>

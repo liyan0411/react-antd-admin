@@ -23,33 +23,50 @@ class MenuCustom extends Component {
     theme: 'dark',
     openKeys: []
   }
-
+  isMainMenu = key => {
+    return routes.menus.some(
+      item => key && (item.key === key)
+    )
+  }
+  // 点击收缩菜单
   onOpenChange = openKeys => {
-    const { collapsed } = this.props
-    if (!collapsed) {
-      // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
-      const latestOpenKey = openKeys.find(
-        key => this.state.openKeys.indexOf(key) === -1
-      )
-      sSetObject('menu', latestOpenKey)
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : []
-      })
-    }
+    console.log(openKeys)
+    // const { collapsed } = this.props
+    // if (!collapsed) {
+    //   // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值
+    //   const latestOpenKey = openKeys.find(
+    //     key => this.state.openKeys.indexOf(key) === -1
+    //   )
+    //   sSetObject('menu', latestOpenKey)
+    //   this.setState({
+    //     openKeys: latestOpenKey ? [latestOpenKey] : []
+    //   })
+    // }
+    const lastOpenKey = openKeys[openKeys.length - 1]
+    const moreThanOne =
+      openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1
+    this.setState({
+      openKeys: moreThanOne ? [lastOpenKey] : [...openKeys]
+    })
   }
   componentDidMount() {
     this.setState({
-      openKeys: [sGetObject('menu')]
+      openKeys: sGetObject('menu')
     })
   }
-
+  // 点击菜单调整
   handleClick = openKeys => {
     const paths = openKeys.keyPath;
-    const latestOpenKey = paths[paths.length-1];
-    sSetObject('menu', latestOpenKey)
+    let latestOpenKey = [];
+    if (paths.length > 2 && openKeys.key === paths[0]) {
+      latestOpenKey=paths.splice(1);
+    }else{
+      latestOpenKey.push(paths[paths.length - 1])
+    }
     this.setState({
-      openKeys: latestOpenKey ? [latestOpenKey] : []
+      openKeys: latestOpenKey ? latestOpenKey : []
     })
+    sSetObject('menu', this.state.openKeys)
   }
   render() {
     const { theme, openKeys } = this.state
