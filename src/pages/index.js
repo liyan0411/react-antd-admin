@@ -9,7 +9,6 @@ import Role from "./auth/role/index";
 import MenuManage from './auth/menu/index';
 import RoleDetail from './auth/role/roleDetail';
 import Gallery from "./ui/gallery"
-import Hl from "./hl"
 // import CSSAnimate from './animate'
 const CSSAnimate = Loadable({
   // 按需加载cssanimate
@@ -18,7 +17,6 @@ const CSSAnimate = Loadable({
   delay:1000
 })
 export default {
-  Hl,
   Home,
   Tables,
   Role,

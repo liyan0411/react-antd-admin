@@ -30,7 +30,6 @@ class MenuCustom extends Component {
   }
   // 点击收缩菜单
   onOpenChange = openKeys => {
-    console.log(openKeys)
     // const { collapsed } = this.props
     // if (!collapsed) {
     //   // find() 方法返回通过测试（函数内判断）的数组的第一个元素的值

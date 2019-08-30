@@ -55,15 +55,7 @@ export default {
           key: '/root/gallery1',
           title: '画廊',
           meta: {},
-          // component: 'Gallery',
-          children: [
-            {
-              key: '/root/hl',
-              title: '画廊1',
-              meta: {},
-              component: 'Hl'
-            }
-          ]
+          component: 'Gallery'
         }
       ]
     }
