@@ -1,7 +1,7 @@
 {
   "extends": "react-app",
   "rules": {
-    "no-multi-spaces": 1,
+    "no-multi-spaces": 0,
     "react/jsx-tag-spacing": 1,
     "react/no-multi-comp": 2,
     "react/jsx-key": 2,

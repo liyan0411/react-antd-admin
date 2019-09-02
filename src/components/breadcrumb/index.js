@@ -16,7 +16,17 @@ class BreadcrumbCustom extends Component {
           <Link to={'/root/home'}>首页</Link>
         </Breadcrumb.Item>
         {lists.map(r => {
-          return <Breadcrumb.Item key={r}>{r}</Breadcrumb.Item> || ''
+          return (
+            (
+              <Breadcrumb.Item key={r}>
+                {r.key ? (
+                  <Link to={r.key}>{r.title}</Link>
+                ) : (
+                  <span>{r.title}</span>
+                )}
+              </Breadcrumb.Item>
+            ) || ''
+          )
         })}
       </Breadcrumb>
     )

@@ -313,9 +313,10 @@ class Tables extends Component {
     const getRow = () => {
       return data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     }
+    const paths = [{ title: '表格', key: '' }]
     return (
       <div>
-        <BreadcrumbCustom lists={['表格']} />
+        <BreadcrumbCustom lists={paths} />
         <div className="view-bg">
           <FormQuery
             formlist={formlist}

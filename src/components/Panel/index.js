@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-// import Icon from '../Icon';
 import cx from 'classnames'
 import CSSAnimate from '../CSSAnimate'
-import { Popconfirm, Modal, Icon } from 'antd'
+import { Icon } from 'antd'
+// Popconfirm, Modal,
 import './index.less'
-const confirm = Modal.confirm
-const noop = _ => {}
+// const confirm = Modal.confirm
+// const noop = _ => {}
 /**
  * 面板组件
  */
@@ -76,20 +76,20 @@ class Panel extends Component {
     this.props.onRefresh && this.props.onRefresh()
   }
 
-  onClose = () => {
-    const { expand } = this.state
-    if (expand) {
-      confirm({
-        title: '提示',
-        content: '您确认要关闭这个面板？',
-        onOk: () => {
-          this.props.onClose && this.props.onClose()
-        }
-      })
-    } else {
-      this.props.onClose && this.props.onClose()
-    }
-  }
+  // onClose = () => {
+  //   const { expand } = this.state
+  //   if (expand) {
+  //     confirm({
+  //       title: '提示',
+  //       content: '您确认要关闭这个面板？',
+  //       onOk: () => {
+  //         this.props.onClose && this.props.onClose()
+  //       }
+  //     })
+  //   } else {
+  //     this.props.onClose && this.props.onClose()
+  //   }
+  // }
 
   render() {
     const { expand, collapse, refresh, animationName } = this.state
@@ -146,7 +146,7 @@ class Panel extends Component {
             >
               <Icon type={`${collapse ? 'plus' : 'minus'}`} />
             </span>
-            <Popconfirm
+            {/* <Popconfirm
               title="您确认要关闭这个面板？"
               onConfirm={this.onClose}
               placement="topRight"
@@ -157,7 +157,7 @@ class Panel extends Component {
               >
                 <Icon type="close" />
               </span>
-            </Popconfirm>
+            </Popconfirm> */}
           </span>
         </div>
       ) : (
