@@ -1,7 +1,7 @@
 [简体中文](./README.md)
 
 ## 工程结构
-```
+
 antd-admin
 ├── build                # 打包后生成的文件
 ├── node_modules         # 依赖资源包
