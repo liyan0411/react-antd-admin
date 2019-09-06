@@ -28,7 +28,7 @@ class Tables extends Component {
         keys: 'timer',
         value: '',
         tips: '请选择日期',
-        type: 'time'
+        type: 'date'
       },
       { name: '性别', keys: 'sex', value: '', tips: '请输入性别' },
       {

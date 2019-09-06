@@ -58,7 +58,7 @@ class Filters extends Component {
                   </Option>
                 ))}
               </Select>
-            ) : formlist[i].type === 'time' ? (
+            ) : formlist[i].type === 'date' ? (
               <DatePicker
                 value={
                   formlist[i].value
