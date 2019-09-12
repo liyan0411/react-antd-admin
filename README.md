@@ -1,6 +1,7 @@
 [简体中文](./README.md)
 
 ## 工程结构
+```bush
 
 antd-admin
 ├── build                # 打包后生成的文件
