@@ -46,6 +46,7 @@ antd-admin
 ├── yarn.lock            # || package-lock.json 在 `yarn||npm`时候生成一份文件,用以记录当前状态下实际安装的各个package的具体来源和版本号
 └── package.json         # package.json 项目相关以及插件版本
 
+
 ### store 模块化规范
   ├── store         	# 模块-store文件
     ├── index.js      	  # 统一暴露
