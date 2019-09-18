@@ -47,7 +47,7 @@ class Filters extends Component {
             {formlist[i].type === 'select' ? (
               <Select
                 showSearch
-                placeholder={formlist[i].tips}
+                placeholder={formlist[i].tips ? formlist[i].tips : '请选择'}
                 value={formlist[i].value ? formlist[i].value : undefined}
                 optionFilterProp="children"
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
@@ -62,21 +62,25 @@ class Filters extends Component {
               <DatePicker
                 value={
                   formlist[i].value
-                    ? moment(
-                        formlist[i].value,
-                        defaultSettings.dateFormat
-                      )
+                    ? moment(formlist[i].value, defaultSettings.dateFormat)
                     : null
                 }
                 format={defaultSettings.dateFormat}
-                placeholder={formlist[i].tips}
+                placeholder={formlist[i].tips ? formlist[i].tips : '请选择'}
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
+              />
+            ) : formlist[i].type === 'textarea' ? (
+              <Input.TextArea
+                autosize={{minRows:3.6,maxRows: 3.6}}
+                value={formlist[i].value}
+                onChange={this.handleInput.bind(this, formlist[i].keys)}
+                placeholder={formlist[i].tips ? formlist[i].tips : '请输入'}
               />
             ) : (
               <Input
                 value={formlist[i].value}
                 onChange={this.handleInput.bind(this, formlist[i].keys)}
-                placeholder={formlist[i].tips}
+                placeholder={formlist[i].tips ? formlist[i].tips : '请输入'}
               />
             )}
           </Form.Item>

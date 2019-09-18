@@ -21,6 +21,7 @@ class Tables extends Component {
       status: [{ name: '启用', value: '1' }, { name: '停用', value: '0' }]
     },
     formlist: [
+      { name: '批量', keys: 'arr', value: '', tips: '请输入姓名' ,type:'textarea'},
       { name: '姓名', keys: 'name', value: '', tips: '请输入姓名' },
       { name: '年龄', keys: 'age', value: '', tips: '请输入年龄' },
       {
