@@ -69,7 +69,7 @@ antd-admin
     # 本地开发 开启服务
     yarn start || npm start
 
-  浏览器访问 http://localhost:3000
+  浏览器访问: http://localhost:3000
 
 ## 发布
     # 打包发布
