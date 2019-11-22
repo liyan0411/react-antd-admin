@@ -2,6 +2,8 @@ import React,{Component,Fragment} from "react";
 import {connect} from "react-redux";
 import { Steps, Button, message, Statistic, Card, Row, Col, Icon } from 'antd'
 import {actionCreator} from "./store/index";
+import HomeChild1 from "./child1"
+import HomeChild2 from "./child2";
 const { Step } = Steps;
 
 class Home extends Component {
@@ -13,10 +15,7 @@ class Home extends Component {
         <div className="view-bg">
           <Steps current={1}>
             <Step title="Finished" description="This is a description." />
-            <Step
-              title="In Progress"
-              description="This is a description."
-            />
+            <Step title="In Progress" description="This is a description." />
             <Step title="Waiting" description="This is a description." />
           </Steps>
           <Row gutter={16}>
@@ -26,7 +25,7 @@ class Home extends Component {
                   title="Active"
                   value={11.28}
                   precision={2}
-                  valueStyle={{ color: '#3f8600' }}
+                  valueStyle={{ color: "#3f8600" }}
                   prefix={<Icon type="arrow-up" />}
                   suffix="%"
                 />
@@ -38,12 +37,12 @@ class Home extends Component {
                   title="Idle"
                   value={9.3}
                   precision={2}
-                  valueStyle={{ color: '#cf1322' }}
+                  valueStyle={{ color: "#cf1322" }}
                   prefix={<Icon type="arrow-down" />}
                   suffix="%"
                 />
               </Card>
-            </Col>{' '}
+            </Col>{" "}
             <Col span={12}>
               <Statistic title="Active Users" value={112893} />
             </Col>
@@ -62,9 +61,15 @@ class Home extends Component {
               </Button>
             </Col>
           </Row>
+          <Row>
+            <Col>
+              <HomeChild1 />
+              <HomeChild2 />
+            </Col>
+          </Row>
         </div>
       </Fragment>
-    )
+    );
 	}
 }
 // 将需要的state的节点注入到与此视图数据相关的组件上

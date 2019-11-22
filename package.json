@@ -32,6 +32,7 @@
     "classnames": "^2.2.6",
     "cmn-utils": "^1.0.9",
     "css-animation": "^1.5.0",
+    "events": "^3.0.0",
     "immutable": "^4.0.0-rc.12",
     "moment": "^2.24.0",
     "object-assign": "^4.1.1",
