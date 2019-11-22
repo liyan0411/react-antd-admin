@@ -14,6 +14,9 @@ class HomeChild1 extends Component{
       });
     })
   }
+  componentWillUnmount(){
+    emitter.removeListtener(this.eventEmitter);
+  }
   render(){
     return <div>homeChild1--------{this.state.message}</div>;
   }
