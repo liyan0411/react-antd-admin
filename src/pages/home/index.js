@@ -1,16 +1,18 @@
-import React,{Component,Fragment} from "react";
-import {connect} from "react-redux";
-import { Steps, Button, message, Statistic, Card, Row, Col, Icon } from 'antd'
-import {actionCreator} from "./store/index";
-import HomeChild1 from "./child1"
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { Steps, Button, message, Statistic, Card, Row, Col, Icon } from "antd";
+import { actionCreator } from "./store/index";
+import HomeChild1 from "./child1";
 import HomeChild2 from "./child2";
+import "./index.less"
 const { Step } = Steps;
 
 class Home extends Component {
-	render(){
-    const { homeData, changeHomeData } = this.props;
+  render() {
+    const { homeData } = this.props;
+    const a=true;
     // const newList=list.toJS();
-		return (
+    return (
       <Fragment>
         <div className="view-bg">
           <Steps current={1}>
@@ -53,9 +55,10 @@ class Home extends Component {
                 precision={2}
               />
               <Button
+                data-id={"123"}
                 style={{ marginTop: 16 }}
                 type="primary"
-                onClick={changeHomeData}
+                onClick={this.changes.bind(this)}
               >
                 Recharge
               </Button>
@@ -65,29 +68,33 @@ class Home extends Component {
             <Col>
               <HomeChild1 />
               <HomeChild2 />
+              <h1 className={`style1 ${a ? "style2" : ""}`}>
+                我是测试样式的
+              </h1>
             </Col>
           </Row>
         </div>
       </Fragment>
     );
-	}
+  }
+  changes(e) {
+    console.log(e.target.getAttribute("data-id"));
+    this.props.changeHomeData();
+  }
 }
 // 将需要的state的节点注入到与此视图数据相关的组件上
 const mapState = state => ({
   // homeData: state.getIn(['home', 'homeData']),
   // list:state.getIn(['home','list']),
-  homeData: state.get('home').homeData,
-  list: state.get('home').list
-})
+  homeData: state.get("home").homeData,
+  list: state.get("home").list
+});
 // 将需要绑定的响应事件注入到组件上
-const mapDispatch=(dispatch)=>({
-  changeHomeData(){
-    message.success('This is a success message')
+const mapDispatch = dispatch => ({
+  changeHomeData() {
+    message.success("This is a success message");
     const action = actionCreator.changeHomeData();
-    dispatch(action)
+    dispatch(action);
   }
-})
-export default connect(
-  mapState,
-  mapDispatch
-)(Home)
+});
+export default connect(mapState, mapDispatch)(Home);
