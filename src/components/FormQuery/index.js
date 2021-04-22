@@ -13,13 +13,13 @@
  * 使用formlist中对应下拉的keys 作为key值
  *
  */
-import React,{Component} from "react";
-import { Form, Row, Col, Input, Button, Select, DatePicker } from 'antd'
-import PropTypes from 'prop-types'
-import "./index.less"
-import moment from 'moment'
-import defaultSettings from '@/config'
-const { Option } = Select
+import React, { Component } from "react";
+import { Form, Row, Col, Input, Button, Select, DatePicker } from "antd";
+import PropTypes from "prop-types";
+import "./index.less";
+import moment from "moment";
+import defaultSettings from "@/config";
+const { Option } = Select;
 
 const formItemLayout = {
   labelCol: {
@@ -30,24 +30,40 @@ const formItemLayout = {
     xs: { span: 24 },
     sm: { span: 12 }
   }
-}
+};
 class Filters extends Component {
-  constructor(props) {
-    super(props)
-    this.handleReset = this.handleReset.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
+  // 指定props 的类型
+  static propTypes = {
+    formlist: PropTypes.array.isRequired,
+    selecList: PropTypes.object,
+    handleChange: PropTypes.func,
+    handleInput: PropTypes.func,
+    handleSearch: PropTypes.func,
+    handleReset: PropTypes.func
   }
+  // 指定 props 的默认值
+  static defaultProps = {
+    formlist: [],
+    selecList: {}
+  }
+
+  constructor(props) {
+    super(props);
+    this.handleReset = this.handleReset.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
   getFormItem() {
-    const { formlist, selecList } = this.props
-    const children = []
+    const { formlist, selecList } = this.props;
+    const children = [];
     for (let i = 0; i < formlist.length; i++) {
       children.push(
         <Col xs={12} sm={12} md={12} lg={8} xl={6} key={i}>
           <Form.Item label={formlist[i].name}>
-            {formlist[i].type === 'select' ? (
+            {formlist[i].type === "select" ? (
               <Select
                 showSearch
-                placeholder={formlist[i].tips ? formlist[i].tips : '请选择'}
+                placeholder={formlist[i].tips ? formlist[i].tips : "请选择"}
                 value={formlist[i].value ? formlist[i].value : undefined}
                 optionFilterProp="children"
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
@@ -58,7 +74,7 @@ class Filters extends Component {
                   </Option>
                 ))}
               </Select>
-            ) : formlist[i].type === 'date' ? (
+            ) : formlist[i].type === "date" ? (
               <DatePicker
                 value={
                   formlist[i].value
@@ -66,39 +82,39 @@ class Filters extends Component {
                     : null
                 }
                 format={defaultSettings.dateFormat}
-                placeholder={formlist[i].tips ? formlist[i].tips : '请选择'}
+                placeholder={formlist[i].tips ? formlist[i].tips : "请选择"}
                 onChange={this.handleChange.bind(this, formlist[i].keys)}
               />
-            ) : formlist[i].type === 'textarea' ? (
+            ) : formlist[i].type === "textarea" ? (
               <Input.TextArea
-                autosize={{minRows:3.6,maxRows: 3.6}}
+                autosize={{ minRows: 3.6, maxRows: 3.6 }}
                 value={formlist[i].value}
                 onChange={this.handleInput.bind(this, formlist[i].keys)}
-                placeholder={formlist[i].tips ? formlist[i].tips : '请输入'}
+                placeholder={formlist[i].tips ? formlist[i].tips : "请输入"}
               />
             ) : (
               <Input
                 value={formlist[i].value}
                 onChange={this.handleInput.bind(this, formlist[i].keys)}
-                placeholder={formlist[i].tips ? formlist[i].tips : '请输入'}
+                placeholder={formlist[i].tips ? formlist[i].tips : "请输入"}
               />
             )}
           </Form.Item>
         </Col>
-      )
+      );
     }
-    return children
+    return children;
   }
 
   handleChange(key, val) {
-    this.props.setSeach(key, val)
+    this.props.setSeach(key, val);
   }
 
   handleInput(key, e) {
-    this.props.setSeach(key, e.target.value)
+    this.props.setSeach(key, e.target.value);
   }
   handleSearch() {
-    this.props.getData()
+    this.props.getData();
     // e.preventDefault()
     // this.props.form.validateFields((err, values) => {
     //   console.log('Received values of form: ', values)
@@ -106,7 +122,7 @@ class Filters extends Component {
   }
 
   handleReset() {
-    this.props.clearSearch()
+    this.props.clearSearch();
     // this.props.form.resetFields()
   }
 
@@ -119,7 +135,7 @@ class Filters extends Component {
       >
         <Row>{this.getFormItem()}</Row>
         <Row>
-          <Col span={24} style={{ textAlign: 'right' }}>
+          <Col span={24} style={{ textAlign: "right" }}>
             <Button type="primary" onClick={this.handleSearch}>
               Search
             </Button>
@@ -129,21 +145,7 @@ class Filters extends Component {
           </Col>
         </Row>
       </Form>
-    )
+    );
   }
-}
-// 指定props 的类型
-Filters.propTypes = {
-  formlist: PropTypes.array.isRequired,
-  selecList: PropTypes.object,
-  handleChange: PropTypes.func,
-  handleInput: PropTypes.func,
-  handleSearch: PropTypes.func,
-  handleReset: PropTypes.func
-}
-// 指定 props 的默认值
-Filters.defaultProps = {
-  formlist: [],
-  selecList:{}
 }
 export default Filters;

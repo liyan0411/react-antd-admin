@@ -4,13 +4,24 @@ import { Steps, Button, message, Statistic, Card, Row, Col, Icon } from "antd";
 import { actionCreator } from "./store/index";
 import HomeChild1 from "./child1";
 import HomeChild2 from "./child2";
+import HomeChild3 from "./child3";
 import "./index.less"
 const { Step } = Steps;
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  componentDidMount() {
+    console.log(111, this.refs.child1);
+    console.log(222, this.myRef);
+    console.log(333, this.input);
+  }
   render() {
     const { homeData } = this.props;
-    const a=true;
+    const str="我再这啊"
+    const a = true;
     // const newList=list.toJS();
     return (
       <Fragment>
@@ -66,11 +77,24 @@ class Home extends Component {
           </Row>
           <Row>
             <Col>
-              <HomeChild1 />
-              <HomeChild2 />
-              <h1 className={`style1 ${a ? "style2" : ""}`}>
-                我是测试样式的
-              </h1>
+              <HomeChild1 ref="child1" str={str}>
+                <span>123</span>
+                <a center="center" href="https://www.baidu.com">
+                  中间跳转腾讯
+                </a>
+                <a right="right" href="https://www.baidu.com">
+                  右侧跳转阿里
+                </a>
+                <a left="left" href="https://www.baidu.com">
+                  左侧跳转百度
+                </a>
+              </HomeChild1>
+              <HomeChild2 ref={this.myRef} str="123" />
+              <HomeChild1 ref={input => (this.input = input)} />
+              <h1 className={`style1 ${a ? "style2" : ""}`}>我是测试样式的</h1>
+              <HomeChild3 order="1" initCount={5} />
+              <HomeChild3 order="2" initCount={10} />
+              <HomeChild3 order="3" initCount={15} />
             </Col>
           </Row>
         </div>
@@ -79,7 +103,7 @@ class Home extends Component {
   }
   changes(e) {
     console.log(e.target.getAttribute("data-id"));
-    this.props.changeHomeData();
+    this.props.changeHomeData("我是修改的数据 啊哈哈哈哈");
   }
 }
 // 将需要的state的节点注入到与此视图数据相关的组件上
@@ -91,9 +115,9 @@ const mapState = state => ({
 });
 // 将需要绑定的响应事件注入到组件上
 const mapDispatch = dispatch => ({
-  changeHomeData() {
+  changeHomeData(homeData) {
     message.success("This is a success message");
-    const action = actionCreator.changeHomeData();
+    const action = actionCreator.changeHomeData(homeData);
     dispatch(action);
   }
 });
